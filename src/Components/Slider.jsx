@@ -56,9 +56,9 @@ const Slider = () => {
               alt="slider-images"
             />
             <div className="absolute top-0 left-0 w-full h-full bg-black/60 rounded-2xl"></div>
-            <div className="absolute top-5 left-5 md:top-3/6 md:left-20 z-10 text-white w-4/6 md:w-6/12 md:space-y-5 text-shadow-2xs">
+            <div className="absolute top-20 left-5 md:top-3/6 md:left-20 z-10 text-white w-4/6 md:w-6/12 space-y-2 md:space-y-5 text-shadow-2xs">
               <h1 className="md:text-4xl text-2xl font-bold">{slider.title}</h1>
-              <p className="text-xl">{slider.description}</p>
+              <p className="md:text-xl line-clamp-3">{slider.description}</p>
               <button className="btn btn-secondary">Join Now</button>
             </div>
           </SwiperSlide>

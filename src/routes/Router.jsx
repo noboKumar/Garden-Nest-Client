@@ -7,6 +7,7 @@ import ShareGardenTip from "../pages/ShareGardenTip";
 import MyTips from "../pages/MyTips";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
+      },
+      {
+        path: "*",
+        Component: ErrorPage,
       },
     ],
   },
