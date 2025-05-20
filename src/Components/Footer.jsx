@@ -11,7 +11,7 @@ const Footer = () => {
           <Link className="btn btn-ghost text-2xl">
             <Logo></Logo>
           </Link>
-          <p className="text-xl">"Where Gardeners Bloom Together."</p>
+          <p className="md:text-xl">"Where Gardeners Bloom Together."</p>
         </aside>
         <nav className="space-y-2">
           <h6 className="footer-title">Social</h6>
