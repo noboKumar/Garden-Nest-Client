@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Slider from '../Components/Slider';
 
 const Home = () => {
     return (
@@ -9,7 +10,7 @@ const Home = () => {
                     Garden Nest | Home
                 </title>
             </Helmet>
-            Home
+            <Slider></Slider>
         </div>
     );
 };
