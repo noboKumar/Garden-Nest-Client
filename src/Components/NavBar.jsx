@@ -100,16 +100,18 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2 md:gap-5">
-          <Tooltip className="z-50" id="user-tooltip">{user?.displayName}</Tooltip>
+          <Tooltip className="z-50" id="user-tooltip">
+            {user?.displayName}
+          </Tooltip>
           {user ? (
             <>
-              <div className="dropdown dropdown-bottom dropdown-center">
+              <div className="dropdown dropdown-bottom dropdown-end">
                 <div tabIndex={0} role="button">
                   {userImg}
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                  className="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm"
                 >
                   <li>
                     <button
