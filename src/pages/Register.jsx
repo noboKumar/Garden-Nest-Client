@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { Helmet } from "react-helmet";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
   return (
-    <div className="lg:w-2/10 md:w-5/10 shadow space-y-2 md:mx-auto mx-2 my-20 p-10 rounded-2xl border-2 border-base-300">
-      {/* <Helmet>
+    <div className="lg:w-3/12 md:w-5/10 shadow space-y-2 md:mx-auto mx-2 my-20 p-10 rounded-2xl border-2 border-base-300">
+      <Helmet>
         <title>Please Register</title>
-      </Helmet> */}
+      </Helmet>
       <h1 className="text-4xl font-semibold">Please Register</h1>
       <form className="space-y-4">
         {/* user name */}
@@ -106,6 +109,7 @@ const Register = () => {
             </g>
           </svg>
           <input
+            type={showPassword ? "text" : "password"}
             required
             name="password"
             placeholder="Password"
@@ -115,14 +119,15 @@ const Register = () => {
             type="button"
             className="cursor-pointer"
             onClick={() => {
+              setShowPassword(!showPassword);
             }}
           >
-            {/* {showPassword ? <FaEye size={16} /> : <FaEyeSlash size={16} />} */}
+            {showPassword ? <FaEye size={16} /> : <FaEyeSlash size={16} />}
           </button>
         </label>
         <p className="text-red-500 text-sm"></p>
         {/* login button */}
-        <button className="btn flex btn-secondary text-white">
+        <button className="btn flex btn-secondary text-white px-10">
           Create Account
         </button>
         {/* google login */}

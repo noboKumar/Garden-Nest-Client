@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   return (
-    <div className="lg:w-2/10 md:w-5/10 space-y-5 shadow md:mx-auto mx-2 my-20 p-10 rounded-2xl border-2 border-base-300">
+    <div className="lg:w-3/12 md:w-5/10 space-y-5 shadow md:mx-auto mx-2 my-20 p-10 rounded-2xl border-2 border-base-300">
       <Helmet>
         <title>Login Now</title>
       </Helmet>
       <h1 className="text-4xl font-semibold">Login Now!</h1>
       {/* email */}
-      <form  className="space-y-4">
+      <form className="space-y-4">
         <label className="input validator">
           <svg
             className="h-[1em] opacity-50"
@@ -29,13 +31,13 @@ const Login = () => {
             </g>
           </svg>
           <input
-            
             name="email"
             type="email"
             placeholder="mail@site.com"
             required
           />
         </label>
+        <br />
         <div className="validator-hint hidden">Enter valid email address</div>
         {/* password */}
         <label className="input validator">
@@ -56,6 +58,7 @@ const Login = () => {
             </g>
           </svg>
           <input
+            type={showPassword ? "text" : "password"}
             name="password"
             required
             placeholder="Password"
@@ -64,10 +67,10 @@ const Login = () => {
             className="cursor-pointer"
             type="button"
             onClick={() => {
-            //   setShowPassword(!showPassword);
+              setShowPassword(!showPassword);
             }}
           >
-            {/* {showPassword ? <FaEye size={16} /> : <FaEyeSlash size={16} />} */}
+            {showPassword ? <FaEye size={16} /> : <FaEyeSlash size={16} />}
           </button>
         </label>
         <Link to={"/forgetPassword"}>
@@ -76,11 +79,13 @@ const Login = () => {
           </p>
         </Link>
         {/* login button */}
-        <button className="btn flex btn-secondary text-white">Login</button>
+        <button className="btn flex btn-secondary text-white px-16">
+          Login
+        </button>
         {/* google login */}
         <button
           type="button"
-        //   onClick={handleGoogleLogIn}
+          //   onClick={handleGoogleLogIn}
           className="btn bg-white text-black border-[#e5e5e5]"
         >
           <svg
