@@ -3,9 +3,10 @@ import Logo from "./Logo";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthContext";
 import { Tooltip } from "react-tooltip";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
-  const { user } = use(AuthContext);
+  const { user, LogOutUser } = use(AuthContext);
   console.log(user);
   const navBarLinks = (
     <>
@@ -37,6 +38,22 @@ const NavBar = () => {
       </a>
     </>
   );
+
+  const handleLogOut = () => {
+    LogOutUser()
+      .then((result) => {
+        console.log(result);
+        Swal.fire({
+          icon: "success",
+          title: "Logged Out Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="shadow-sm bg-base-200 ">
       <div className="navbar w-11/12 mx-auto">
@@ -91,7 +108,12 @@ const NavBar = () => {
                   className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
                 >
                   <li>
-                    <button className="btn bg-red-500 text-white">Log Out</button>
+                    <button
+                      onClick={handleLogOut}
+                      className="btn bg-red-500 text-white"
+                    >
+                      Log Out
+                    </button>
                   </li>
                 </ul>
               </div>
