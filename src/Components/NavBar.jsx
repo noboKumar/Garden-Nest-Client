@@ -19,12 +19,16 @@ const NavBar = () => {
       <li>
         <NavLink to={"/BrowseTips"}>Browse Tips</NavLink>
       </li>
-      <li>
-        <NavLink to={"/ShareGardenTip"}>Share a Garden Tip</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/MyTips"}>My Tips</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to={"/ShareGardenTip"}>Share a Garden Tip</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/MyTips"}>My Tips</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   const userImg = (

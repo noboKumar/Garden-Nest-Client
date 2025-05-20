@@ -8,6 +8,7 @@ import MyTips from "../pages/MyTips";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
+import PrivateRouter from "./PrivateRouter";
 
 export const router = createBrowserRouter([
   {
@@ -28,11 +29,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/ShareGardenTip",
-        Component: ShareGardenTip,
+        element: (
+          <PrivateRouter>
+            <ShareGardenTip></ShareGardenTip>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/MyTips",
-        Component: MyTips,
+        element: (
+          <PrivateRouter>
+            <MyTips></MyTips>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/LogIn",
