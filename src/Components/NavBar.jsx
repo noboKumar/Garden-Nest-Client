@@ -59,7 +59,9 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-xl">{navBarLinks}</ul>
+          <ul className="menu menu-horizontal px-1 text-xl gap-2 font-medium">
+            {navBarLinks}
+          </ul>
         </div>
         <div className="navbar-end gap-2 md:gap-5">
           {/* <Tooltip id="user-tooltip">{user?.displayName}</Tooltip>
@@ -72,7 +74,9 @@ const NavBar = () => {
               />
             </a>
           )} */}
-          <button className="btn">Login</button>
+          <Link to={"/Login"}>
+            <button className="btn btn-secondary">Login</button>
+          </Link>
 
           {/* {user ? (
             <button
