@@ -3,11 +3,52 @@ import { Helmet } from "react-helmet";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
 import { AuthContext } from "../provider/AuthContext";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { googleLogIn, logInUser } = use(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
-  const { user } = use(AuthContext);
-  console.log(user);
+
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const { email, password } = Object.fromEntries(formData.entries());
+
+    logInUser(email, password)
+      .then((result) => {
+        console.log(result);
+        Swal.fire({
+          icon: "success",
+          title: `welcome ${result.user?.displayName}`,
+          text: "You Have Successfully Created Account",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        form.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.code}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogIn()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="lg:w-3/12 md:w-5/10 space-y-5 shadow md:mx-auto mx-2 my-20 p-10 rounded-2xl border-2 border-base-300">
       <Helmet>
@@ -15,7 +56,7 @@ const Login = () => {
       </Helmet>
       <h1 className="text-4xl font-semibold">Login Now!</h1>
       {/* email */}
-      <form className="space-y-4">
+      <form onSubmit={handleLogIn} className="space-y-4">
         <label className="input validator">
           <svg
             className="h-[1em] opacity-50"
@@ -76,11 +117,9 @@ const Login = () => {
             {showPassword ? <FaEye size={16} /> : <FaEyeSlash size={16} />}
           </button>
         </label>
-        <Link to={"/forgetPassword"}>
-          <p className="underline text-gray-500 cursor-pointer active:text-primary py-2">
-            Forget Password?
-          </p>
-        </Link>
+        <p className="underline text-gray-500 cursor-pointer active:text-primary py-2">
+          Forget Password?
+        </p>
         {/* login button */}
         <button className="btn flex btn-secondary text-white px-16">
           Login
@@ -88,7 +127,7 @@ const Login = () => {
         {/* google login */}
         <button
           type="button"
-          //   onClick={handleGoogleLogIn}
+          onClick={handleGoogleLogin}
           className="btn bg-white text-black border-[#e5e5e5]"
         >
           <svg

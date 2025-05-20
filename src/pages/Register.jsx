@@ -1,17 +1,81 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthContext";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const { createUser, updateUser, setUser, googleLogIn } = use(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const [passwordError, setPasswordError] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const { name, photoUrl, email, password } = Object.fromEntries(
+      formData.entries()
+    );
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/;
+    if (passwordRegex.test(password) === false) {
+      setPasswordError(
+        "Password must be at least 8 characters and include 1 uppercase, 1 lowercase, and a special character"
+      );
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+        const userData = result.user;
+        updateUser({ displayName: name, photoURL: photoUrl })
+          .then(() => {
+            setUser({ ...userData, displayName: name, photoURL: photoUrl });
+            Swal.fire({
+              icon: "success",
+              title: `welcome ${result.user?.displayName}`,
+              text: "You Have Successfully Created Account",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            setPasswordError("");
+            form.reset();
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(userData);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.code}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogIn()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="lg:w-3/12 md:w-5/10 shadow space-y-2 md:mx-auto mx-2 my-20 p-10 rounded-2xl border-2 border-base-300">
       <Helmet>
         <title>Please Register</title>
       </Helmet>
       <h1 className="text-4xl font-semibold">Please Register</h1>
-      <form className="space-y-4">
+      <form onSubmit={handleRegister} className="space-y-4">
         {/* user name */}
         <label className="input validator">
           <svg
@@ -59,7 +123,7 @@ const Register = () => {
           </svg>
           <input
             type="url"
-            name="url"
+            name="photoUrl"
             placeholder="Photo URL"
             pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$"
             title="Must be valid URL"
@@ -125,13 +189,14 @@ const Register = () => {
             {showPassword ? <FaEye size={16} /> : <FaEyeSlash size={16} />}
           </button>
         </label>
-        <p className="text-red-500 text-sm"></p>
-        {/* login button */}
+        <p className="text-red-500 text-sm">{passwordError}</p>
+        {/* signUp button */}
         <button className="btn flex btn-secondary text-white px-10">
           Create Account
         </button>
         {/* google login */}
         <button
+          onClick={handleGoogleLogin}
           type="button"
           className="btn bg-white text-black border-[#e5e5e5]"
         >
