@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthContext";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { user } = use(AuthContext);
+  console.log(user);
   return (
     <div className="lg:w-3/12 md:w-5/10 space-y-5 shadow md:mx-auto mx-2 my-20 p-10 rounded-2xl border-2 border-base-300">
       <Helmet>
