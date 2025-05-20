@@ -1,8 +1,12 @@
-import React from "react";
+import React, { use } from "react";
 import Logo from "./Logo";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../provider/AuthContext";
+import { Tooltip } from "react-tooltip";
 
 const NavBar = () => {
+  const { user } = use(AuthContext);
+  console.log(user);
   const navBarLinks = (
     <>
       <li>
@@ -20,6 +24,17 @@ const NavBar = () => {
       <li>
         <NavLink to={"/MyTips"}>My Tips</NavLink>
       </li>
+    </>
+  );
+  const userImg = (
+    <>
+      <a data-tooltip-id="user-tooltip">
+        <img
+          className="w-10 h-10 md:w-15 md:h-15 object-cover rounded-full border-2 border-gray-400 md:p-1 cursor-pointer"
+          src={user?.photoURL}
+          alt="user photo"
+        />
+      </a>
     </>
   );
   return (
@@ -64,27 +79,23 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2 md:gap-5">
-          {/* <Tooltip id="user-tooltip">{user?.displayName}</Tooltip>
-          {user && (
-            <a data-tooltip-id="user-tooltip">
-              <img
-                className="w-10 h-10 md:w-15 md:h-15 object-cover rounded-full border-2 border-gray-400 md:p-1 cursor-pointer"
-                src={user?.photoURL}
-                alt=""
-              />
-            </a>
-          )} */}
-          <Link to={"/Login"}>
-            <button className="btn btn-secondary">Login</button>
-          </Link>
-
-          {/* {user ? (
-            <button
-              onClick={handleLogOut}
-              className="btn btn-primary text-white px-1 md:px-5"
-            >
-              Log Out
-            </button>
+          <Tooltip id="user-tooltip">{user?.displayName}</Tooltip>
+          {user ? (
+            <>
+              <div className="dropdown dropdown-bottom dropdown-center">
+                <div tabIndex={0} role="button">
+                  {userImg}
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                >
+                  <li>
+                    <button className="btn bg-red-500 text-white">Log Out</button>
+                  </li>
+                </ul>
+              </div>
+            </>
           ) : (
             <Link
               to={"/login"}
@@ -92,7 +103,7 @@ const NavBar = () => {
             >
               Log In
             </Link>
-          )} */}
+          )}
         </div>
       </div>
     </div>
