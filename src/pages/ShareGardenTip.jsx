@@ -49,7 +49,7 @@ const ShareGardenTip = () => {
               {/* title */}
               <label className="label text-sm">Title</label>
               <input
-              required
+                required
                 name="title"
                 type="text"
                 className="input w-full"
@@ -167,6 +167,7 @@ const ShareGardenTip = () => {
                       </g>
                     </svg>
                     <input
+                      name="email"
                       readOnly
                       value={user.email}
                       type="email"
