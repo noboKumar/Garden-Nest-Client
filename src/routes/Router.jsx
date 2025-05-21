@@ -29,6 +29,8 @@ export const router = createBrowserRouter([
       {
         path: "/BrowseTips",
         Component: BrowseTips,
+        loader: () => fetch("http://localhost:3000/browseTips"),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/ShareGardenTip",

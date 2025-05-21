@@ -11,15 +11,15 @@ const ShareGardenTip = () => {
 
     const form = e.target;
     const formData = new FormData(form);
-    const userData = Object.fromEntries(formData.entries());
-    console.log(userData);
+    const tipsData = Object.fromEntries(formData.entries());
+    console.log(tipsData);
 
     fetch("http://localhost:3000/tips", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(userData),
+      body: JSON.stringify(tipsData),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -108,7 +108,7 @@ const ShareGardenTip = () => {
                 <div>
                   <label className="label text-sm">Availability:</label>
                   <select
-                    name="availability"
+                    name="status"
                     defaultValue="Pick a color"
                     className="select w-full"
                   >
