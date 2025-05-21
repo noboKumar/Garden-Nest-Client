@@ -18,7 +18,7 @@ const TopTrendingTips = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-5">
         {trendingData.map((trending) => (
-          <TopTrendingTipsCard key={trendingData._id} trending={trending}></TopTrendingTipsCard>
+          <TopTrendingTipsCard key={trending._id} trending={trending}></TopTrendingTipsCard>
         ))}
       </div>
     </div>

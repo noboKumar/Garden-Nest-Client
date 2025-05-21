@@ -41,11 +41,11 @@ const ShareGardenTip = () => {
       <div className="space-y-5">
         <div className="flex items-center gap-2 justify-center text-secondary">
           <RiMessage3Line size={35} />
-          <h1 className="text-4xl font-semibold">Share a Garden Tips:</h1>
+          <h1 className="text-2xl md:text-4xl font-semibold">Share a Garden Tips:</h1>
         </div>
         <div className="flex justify-center">
           <form onSubmit={handleShareTips}>
-            <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-[500px] border p-5">
+            <fieldset className="fieldset bg-base-200 border-base-300 rounded-box md:w-[500px] border p-5">
               {/* title */}
               <label className="label text-sm">Title</label>
               <input

@@ -18,7 +18,7 @@ const UpcomingEvents = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {eventData.map((event) => (
-          <div className="space-y-2 border-2 border-secondary bg-base-200 rounded-2xl px-10 py-6 shadow-sm cursor-pointer">
+          <div key={event.id} className="space-y-2 border-2 border-secondary bg-base-200 rounded-2xl px-10 py-6 shadow-sm cursor-pointer">
             <img
               className=" h-40 object-cover rounded-2xl mx-auto"
               src={event.image}
