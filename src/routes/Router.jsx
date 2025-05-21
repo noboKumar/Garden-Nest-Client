@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRouter from "./PrivateRouter";
+import Loading from "../Components/Loading";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,8 @@ export const router = createBrowserRouter([
       {
         path: "/ExploreGardeners",
         Component: ExploreGardeners,
+        loader: () => fetch("http://localhost:3000/users"),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/BrowseTips",

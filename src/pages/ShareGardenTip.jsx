@@ -9,7 +9,7 @@ const ShareGardenTip = () => {
         <title>Garden Nest | Share a Garden Tips</title>
       </Helmet>
       <div className="space-y-5">
-        <div className="flex items-center gap-2 justify-center">
+        <div className="flex items-center gap-2 justify-center text-secondary">
           <RiMessage3Line size={35} />
           <h1 className="text-4xl font-semibold">Share a Garden Tips:</h1>
         </div>

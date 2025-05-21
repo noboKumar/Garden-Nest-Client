@@ -10,7 +10,7 @@ const ActiveGardener = () => {
   }, []);
   return (
     <div className="space-y-5 my-10">
-      <h1 className="text-2xl md:text-4xl font-semibold">Active gardeners:</h1>
+      <h1 className="text-2xl md:text-4xl font-semibold text-secondary">Active gardeners:</h1>
       <div className="grid grid-cols-3 lg:grid-cols-6">
         {activeUserData.map((gardener) => (
           <ActiveGardenerCard
