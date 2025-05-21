@@ -1,8 +1,9 @@
 import React from "react";
 import { FaRegEye } from "react-icons/fa";
+import { Link } from "react-router";
 
 const BrowseTipsTable = ({ tips }) => {
-  const { category, imageURL, title } = tips;
+  const { category, imageURL, title, _id } = tips;
   return (
     <>
       <tr>
@@ -18,9 +19,11 @@ const BrowseTipsTable = ({ tips }) => {
           )}
         </td>
         <td>
-          <button className="btn px-1 md:px-6">
-            <FaRegEye size={20} />
-          </button>
+          <Link to={`/BrowseTips/${_id}`}>
+            <button className="btn px-1 md:px-6">
+              <FaRegEye size={20} />
+            </button>
+          </Link>
         </td>
       </tr>
     </>

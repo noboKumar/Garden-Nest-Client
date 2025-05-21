@@ -10,6 +10,7 @@ import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRouter from "./PrivateRouter";
 import Loading from "../Components/Loading";
+import BrowseTipsDetails from "../pages/BrowseTipsDetails";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,17 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRouter>
             <MyTips></MyTips>
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/BrowseTips/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/browseTips/${params.id}`),
+        hydrateFallbackElement: <Loading></Loading>,
+        element: (
+          <PrivateRouter>
+            <BrowseTipsDetails></BrowseTipsDetails>
           </PrivateRouter>
         ),
       },
