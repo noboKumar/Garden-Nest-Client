@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet";
 import Slider from "../Components/Slider";
 import ActiveGardener from "../Components/ActiveGardener";
 import TopTrendingTips from "../Components/TopTrendingTips";
+import GardenOfTheMonth from "../Components/GardenOfTheMonth";
+import UpcomingEvents from "../Components/UpcomingEvents";
 
 const Home = () => {
   return (
@@ -13,6 +15,8 @@ const Home = () => {
       <Slider></Slider>
       <ActiveGardener></ActiveGardener>
       <TopTrendingTips></TopTrendingTips>
+      <GardenOfTheMonth></GardenOfTheMonth>
+      <UpcomingEvents></UpcomingEvents>
     </div>
   );
 };
