@@ -34,13 +34,13 @@ const UpdateMyTips = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/myTips")
+          navigate("/myTips");
         }
       });
   };
   return (
     <div className="space-y-5">
-      <div className="flex items-center gap-2 justify-center text-secondary">
+      <div className="flex items-center gap-2 justify-center text-[#2e7d32]">
         <FiEdit3 size={35} />
         <h1 className="text-2xl md:text-4xl font-semibold">
           Update Your Tips:
@@ -55,7 +55,7 @@ const UpdateMyTips = () => {
             required
             name="title"
             type="text"
-            className="input w-full"
+            className="input w-full bg-base-200"
             placeholder="Enter Tips Title"
           />
           {/* plant type */}
@@ -64,12 +64,12 @@ const UpdateMyTips = () => {
             defaultValue={type}
             name="type"
             type="text"
-            className="input w-full"
+            className="input w-full bg-base-200"
             placeholder="Enter plant Type"
           />
           {/* difficulty level */}
           <label className="label text-sm">Difficulty Level</label>
-          <select name="level" defaultValue={level} className="select w-full">
+          <select name="level" defaultValue={level} className="select w-full bg-base-200">
             <option disabled={true}>Pick a Level</option>
             <option>Easy</option>
             <option>Medium</option>
@@ -80,7 +80,7 @@ const UpdateMyTips = () => {
           <textarea
             defaultValue={description}
             name="description"
-            className="textarea w-full"
+            className="textarea w-full bg-base-200"
             placeholder="Enter Description Here"
           ></textarea>
           {/* image URL */}
@@ -89,7 +89,7 @@ const UpdateMyTips = () => {
             defaultValue={imageURL}
             name="imageURL"
             type="text"
-            className="input w-full"
+            className="input w-full bg-base-200"
             placeholder="Enter Image URL here"
           />
           <div className="flex gap-2">
@@ -98,7 +98,7 @@ const UpdateMyTips = () => {
               <select
                 name="category"
                 defaultValue={category}
-                className="select w-full"
+                className="select w-full bg-base-200"
               >
                 <option disabled={true}>Pick a category</option>
                 <option>Composting</option>
@@ -112,7 +112,7 @@ const UpdateMyTips = () => {
               <select
                 defaultValue={status}
                 name="status"
-                className="select w-full"
+                className="select w-full bg-base-200"
               >
                 <option disabled={true}>select availability</option>
                 <option>Public</option>
@@ -123,7 +123,7 @@ const UpdateMyTips = () => {
           <div className="space-y-2">
             <div>
               {/* user name */}
-              <label className="input validator w-full">
+              <label className="input validator w-full bg-base-200">
                 <svg
                   className="h-[1em] opacity-50"
                   xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +151,7 @@ const UpdateMyTips = () => {
             </div>
             {/* email */}
             <div>
-              <label className="input validator w-full">
+              <label className="input validator w-full bg-base-200">
                 <svg
                   className="h-[1em] opacity-50"
                   xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +180,7 @@ const UpdateMyTips = () => {
             </div>
           </div>
           {/* button */}
-          <button className="btn btn-secondary">Update</button>
+          <button className="btn bg-[#2e7d32] border-none shadow text-white">Update</button>
         </fieldset>
       </form>
     </div>

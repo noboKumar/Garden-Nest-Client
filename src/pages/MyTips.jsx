@@ -25,13 +25,12 @@ const MyTips = () => {
     }
   }, [userEmail]);
 
-
   return (
     <div className="space-y-5">
       <Helmet>
         <title>Garden Nest | My Tips</title>
       </Helmet>
-      <div className="flex items-center gap-2 justify-center text-secondary">
+      <div className="flex items-center gap-2 justify-center text-[#2e7d32]">
         <GiTreeBranch size={35} />
         <h1 className="text-4xl font-semibold">My Tips:</h1>
       </div>

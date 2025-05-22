@@ -14,7 +14,7 @@ const ExploreGardenersCard = ({ gardner }) => {
     status,
   } = gardner;
   return (
-    <div className="rounded-2xl border-2 border-secondary bg-base-200 shadow-sm px-8 lg:px-12 py-5 space-y-2">
+    <div className="rounded-2xl border-2 border-[#2e7d32] bg-base-200 shadow-sm px-8 lg:px-12 py-5 space-y-2">
       <div className="flex gap-5">
         <div className="space-y-1.5 flex-1/2">
           <img
@@ -37,7 +37,7 @@ const ExploreGardenersCard = ({ gardner }) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-2 bg-base-300 px-8 py-1 rounded-2xl">
+      <div className="flex items-center gap-2 bg-base-300 dark:bg-base-100 px-8 py-1 rounded-2xl">
         <HiOutlineLightBulb size={25} />
         <p className="lg:text-xl">Total Tips Shared: {totalSharedTips}</p>
       </div>

@@ -22,23 +22,13 @@ const BrowseTips = () => {
   const handleSorting = (e) => {
     const level = e.target.value;
     setSelectedLevel(level);
-
-    // const sorted = [...browseTips].sort((levelA, levelB) => {
-    //   if (levelA.level === selectedLevel && levelB.level !== selectedLevel) {
-    //     return -1;
-    //   } else if (levelA.level !== selectedLevel && levelB.level === selectedLevel) {
-    //     return 1;
-    //   }
-    //   return 0;
-    // });
-    // setBrowseTips(sorted);
   };
   return (
     <div className="space-y-5">
       <Helmet>
         <title>Garden Nest | Browse Tips</title>
       </Helmet>
-      <div className="flex items-center gap-2 justify-center text-secondary">
+      <div className="flex items-center gap-2 justify-center text-[#2e7d32]">
         <PiPottedPlantBold size={35} />
         <h1 className="text-4xl font-semibold">Browse Tips:</h1>
       </div>
@@ -47,9 +37,11 @@ const BrowseTips = () => {
           <select
             onChange={handleSorting}
             defaultValue={selectedLevel}
-            className="select select-secondary"
+            className="select bg-base-200"
           >
-            <option value={""} disabled={true}>Filter by Level</option>
+            <option value={""} disabled={true}>
+              Filter by Level
+            </option>
             <option value={"Easy"}>Easy</option>
             <option value={"Medium"}>Medium</option>
             <option value={"Hard"}>Hard</option>

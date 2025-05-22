@@ -20,12 +20,12 @@ const GardenOfTheMonth = () => {
   console.log(gardenOfMonth);
   return (
     <div className="space-y-10 my-10">
-      <h1 className="text-2xl md:text-4xl font-semibold text-secondary text-center">
+      <h1 className="text-2xl md:text-4xl font-semibold text-[#2e7d32] text-center">
         Garden Of The Month:
       </h1>
       <div className="relative md:w-full">
         <Swiper
-          className="bg-base-200 border-2 rounded-2xl border-secondary"
+          className="bg-base-200 border-2 rounded-2xl border-[#2e7d32]"
           modules={[Navigation, Pagination, A11y, Autoplay, Keyboard]}
           autoplay={{ delay: 4000, disableOnInteraction: false }}
           loop={gardenOfMonth.length > 3}

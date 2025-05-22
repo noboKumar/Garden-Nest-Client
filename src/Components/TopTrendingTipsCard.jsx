@@ -3,7 +3,7 @@ import React from "react";
 const TopTrendingTipsCard = ({ trending }) => {
   const { imageURL, title, description } = trending;
   return (
-    <div className="space-y-2 border-2 border-secondary bg-base-200 rounded-2xl px-10 py-6 shadow-sm cursor-pointer">
+    <div className="space-y-2 border-2 border-[#2e7d32] bg-base-200 rounded-2xl px-10 py-6 shadow-sm cursor-pointer">
       {imageURL && (
         <img
           className=" h-40 object-cover rounded-2xl mx-auto"

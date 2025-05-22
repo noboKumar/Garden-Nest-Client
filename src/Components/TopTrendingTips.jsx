@@ -13,12 +13,15 @@ const TopTrendingTips = () => {
   }, []);
   return (
     <div className="space-y-10">
-      <h1 className="text-2xl md:text-4xl font-semibold text-secondary text-center">
+      <h1 className="text-2xl md:text-4xl font-semibold text-[#2e7d32] text-center">
         Top Trending:
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-5">
         {trendingData.map((trending) => (
-          <TopTrendingTipsCard key={trending._id} trending={trending}></TopTrendingTipsCard>
+          <TopTrendingTipsCard
+            key={trending._id}
+            trending={trending}
+          ></TopTrendingTipsCard>
         ))}
       </div>
     </div>

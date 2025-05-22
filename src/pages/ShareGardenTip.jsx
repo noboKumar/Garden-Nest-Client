@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 
 const ShareGardenTip = () => {
   const { user } = use(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleShareTips = (e) => {
     e.preventDefault();
 
@@ -33,7 +33,7 @@ const ShareGardenTip = () => {
           timer: 1500,
         });
         form.reset();
-        navigate("/browseTips")
+        navigate("/browseTips");
       });
   };
   return (
@@ -42,9 +42,11 @@ const ShareGardenTip = () => {
         <title>Garden Nest | Share a Garden Tips</title>
       </Helmet>
       <div className="space-y-5">
-        <div className="flex items-center gap-2 justify-center text-secondary">
+        <div className="flex items-center gap-2 justify-center text-[#2e7d32]">
           <RiMessage3Line size={35} />
-          <h1 className="text-2xl md:text-4xl font-semibold">Share a Garden Tips:</h1>
+          <h1 className="text-2xl md:text-4xl font-semibold">
+            Share a Garden Tips:
+          </h1>
         </div>
         <div className="flex justify-center">
           <form onSubmit={handleShareTips}>
@@ -55,7 +57,7 @@ const ShareGardenTip = () => {
                 required
                 name="title"
                 type="text"
-                className="input w-full"
+                className="input w-full bg-base-200"
                 placeholder="Enter Tips Title"
               />
               {/* plant type */}
@@ -63,7 +65,7 @@ const ShareGardenTip = () => {
               <input
                 name="type"
                 type="text"
-                className="input w-full"
+                className="input w-full bg-base-200"
                 placeholder="Enter plant Type"
               />
               {/* difficulty level */}
@@ -71,7 +73,7 @@ const ShareGardenTip = () => {
               <select
                 name="level"
                 defaultValue="Pick a color"
-                className="select w-full"
+                className="select w-full bg-base-200 bg-base-200"
               >
                 <option disabled={true}>Pick a Level</option>
                 <option>Easy</option>
@@ -82,7 +84,7 @@ const ShareGardenTip = () => {
               <label className="label text-sm">Description</label>
               <textarea
                 name="description"
-                className="textarea w-full"
+                className="textarea w-full bg-base-200"
                 placeholder="Enter Description Here"
               ></textarea>
               {/* image URL */}
@@ -90,7 +92,7 @@ const ShareGardenTip = () => {
               <input
                 name="imageURL"
                 type="text"
-                className="input w-full"
+                className="input w-full bg-base-200"
                 placeholder="Enter Image URL here"
               />
               <div className="flex gap-2">
@@ -99,7 +101,7 @@ const ShareGardenTip = () => {
                   <select
                     name="category"
                     defaultValue="Pick a color"
-                    className="select w-full"
+                    className="select w-full bg-base-200"
                   >
                     <option disabled={true}>Pick a category</option>
                     <option>Composting</option>
@@ -113,7 +115,7 @@ const ShareGardenTip = () => {
                   <select
                     name="status"
                     defaultValue="Pick a color"
-                    className="select w-full"
+                    className="select w-full bg-base-200"
                   >
                     <option disabled={true}>select availability</option>
                     <option>Public</option>
@@ -124,7 +126,7 @@ const ShareGardenTip = () => {
               <div className="space-y-2">
                 <div>
                   {/* user name */}
-                  <label className="input validator w-full">
+                  <label className="input validator w-full bg-base-200">
                     <svg
                       className="h-[1em] opacity-50"
                       xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +154,7 @@ const ShareGardenTip = () => {
                 </div>
                 {/* email */}
                 <div>
-                  <label className="input validator w-full">
+                  <label className="input validator w-full bg-base-200">
                     <svg
                       className="h-[1em] opacity-50"
                       xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +183,7 @@ const ShareGardenTip = () => {
                 </div>
               </div>
               {/* button */}
-              <button className="btn btn-secondary">Submit</button>
+              <button className="btn bg-[#2e7d32] border-none shadow text-white">Submit</button>
             </fieldset>
           </form>
         </div>

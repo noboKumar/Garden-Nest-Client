@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthContext";
 import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
+import ThemeController from "./ThemeController";
 
 const NavBar = () => {
   const { user, LogOutUser } = use(AuthContext);
@@ -85,7 +86,7 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-secondary rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               {navBarLinks}
             </ul>
@@ -111,7 +112,7 @@ const NavBar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 shadow-sm"
+                  className="dropdown-content menu bg-secondary rounded-box z-50 w-52 p-2 shadow-sm"
                 >
                   <li>
                     <button
@@ -132,6 +133,9 @@ const NavBar = () => {
               Log In
             </Link>
           )}
+          <div>
+            <ThemeController></ThemeController>
+          </div>
         </div>
       </div>
     </div>

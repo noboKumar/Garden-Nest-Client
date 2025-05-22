@@ -13,9 +13,11 @@ const ExploreGardeners = () => {
         <title>Garden Nest | Explore Gardeners</title>
       </Helmet>
       <div className="space-y-5">
-        <div className="flex items-center gap-2 justify-center text-secondary">
+        <div className="flex items-center gap-2 justify-center text-[#2e7d32]">
           <PiPlantFill size={35} />
-          <h1 className="text-2xl md:text-4xl font-semibold">Explore Gardeners:</h1>
+          <h1 className="text-2xl md:text-4xl font-semibold">
+            Explore Gardeners:
+          </h1>
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {userData.map((gardner) => (

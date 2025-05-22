@@ -1,23 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: light --default;
 }
 
 @plugin "daisyui/theme" {
-  name: "light";
+  name: "myTheme";
   default: true;
   --color-primary: #4caf50;
   --color-secondary: #2e7d32;
   --color-earth-brown: #7b5e3c;
+  --color-base-100: #3dac43a2;
   --color-base-200: #f0f4f1;
   --color-base-300: #d9e4dd;
   --color-accent: #f4d35e;
+
+  name: "dark";
+  --color-primary: #4caf50;
+  --color-secondary: #81c784;
+  --color-earth-brown: #7b5e3c;
+  --color-base-100: #3dac43a2;
+  --color-base-200: #2c2c2c;
+  --color-base-300: #d9e4dd;
+  --color-accent: #3a3a3a;
 }
 
 .lora {
   font-family: "Lora", serif;
+  background: #3e7251;
 }
 
 .poppins {
