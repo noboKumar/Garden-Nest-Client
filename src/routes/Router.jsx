@@ -25,13 +25,15 @@ export const router = createBrowserRouter([
       {
         path: "/ExploreGardeners",
         Component: ExploreGardeners,
-        loader: () => fetch("http://localhost:3000/users"),
+        loader: () =>
+          fetch("https://ph-assignment-10-server-pi.vercel.app/users"),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/BrowseTips",
         Component: BrowseTips,
-        loader: () => fetch("http://localhost:3000/browseTips"),
+        loader: () =>
+          fetch("https://ph-assignment-10-server-pi.vercel.app/browseTips"),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
@@ -53,7 +55,9 @@ export const router = createBrowserRouter([
       {
         path: "/BrowseTips/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/browseTips/${params.id}`),
+          fetch(
+            `https://ph-assignment-10-server-pi.vercel.app/browseTips/${params.id}`
+          ),
         hydrateFallbackElement: <Loading></Loading>,
         element: (
           <PrivateRouter>
@@ -72,7 +76,9 @@ export const router = createBrowserRouter([
       {
         path: "/updateTips/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/browseTips/${params.id}`),
+          fetch(
+            `https://ph-assignment-10-server-pi.vercel.app/browseTips/${params.id}`
+          ),
         hydrateFallbackElement: <Loading></Loading>,
         Component: UpdateMyTips,
       },

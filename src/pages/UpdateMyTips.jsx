@@ -17,7 +17,7 @@ const UpdateMyTips = () => {
     const formData = new FormData(form);
     const tipsUpdateData = Object.fromEntries(formData.entries());
 
-    fetch(`http://localhost:3000/tips/${_id}`, {
+    fetch(`https://ph-assignment-10-server-pi.vercel.app/tips/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -69,7 +69,11 @@ const UpdateMyTips = () => {
           />
           {/* difficulty level */}
           <label className="label text-sm">Difficulty Level</label>
-          <select name="level" defaultValue={level} className="select w-full bg-base-200">
+          <select
+            name="level"
+            defaultValue={level}
+            className="select w-full bg-base-200"
+          >
             <option disabled={true}>Pick a Level</option>
             <option>Easy</option>
             <option>Medium</option>
@@ -180,7 +184,9 @@ const UpdateMyTips = () => {
             </div>
           </div>
           {/* button */}
-          <button className="btn bg-[#2e7d32] border-none shadow text-white">Update</button>
+          <button className="btn bg-[#2e7d32] border-none shadow text-white">
+            Update
+          </button>
         </fieldset>
       </form>
     </div>

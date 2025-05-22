@@ -4,7 +4,7 @@ import ActiveGardenerCard from "./ActivegardenerCard";
 const ActiveGardener = () => {
   const [activeUserData, setActiveUserData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/activeusers")
+    fetch("https://ph-assignment-10-server-pi.vercel.app/activeusers")
       .then((res) => res.json())
       .then((data) => setActiveUserData(data));
   }, []);

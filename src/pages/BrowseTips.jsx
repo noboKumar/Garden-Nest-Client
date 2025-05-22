@@ -11,7 +11,9 @@ const BrowseTips = () => {
 
   useEffect(() => {
     selectedLevel &&
-      fetch(`http://localhost:3000/tips/${selectedLevel}`)
+      fetch(
+        `https://ph-assignment-10-server-pi.vercel.app/tips/${selectedLevel}`
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -63,7 +65,11 @@ const BrowseTips = () => {
             </thead>
             <tbody>
               {browseTips.map((tips, index) => (
-                <BrowseTipsTable index={index} key={tips._id} tips={tips}></BrowseTipsTable>
+                <BrowseTipsTable
+                  index={index}
+                  key={tips._id}
+                  tips={tips}
+                ></BrowseTipsTable>
               ))}
             </tbody>
           </table>

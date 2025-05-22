@@ -19,7 +19,7 @@ const MyTipsTable = ({ tips, myTips, setMyTips }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // delete api
-        fetch(`http://localhost:3000/tips/${_id}`, {
+        fetch(`https://ph-assignment-10-server-pi.vercel.app/tips/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

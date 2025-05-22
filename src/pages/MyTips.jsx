@@ -11,7 +11,7 @@ const MyTips = () => {
 
   useEffect(() => {
     if (userEmail) {
-      fetch("http://localhost:3000/myTips", {
+      fetch("https://ph-assignment-10-server-pi.vercel.app/myTips", {
         method: "POST",
         headers: {
           "content-type": "application/json",

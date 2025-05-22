@@ -16,7 +16,7 @@ const ShareGardenTip = () => {
     const tipsData = Object.fromEntries(formData.entries());
     console.log(tipsData);
 
-    fetch("http://localhost:3000/tips", {
+    fetch("https://ph-assignment-10-server-pi.vercel.app/tips", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -183,7 +183,9 @@ const ShareGardenTip = () => {
                 </div>
               </div>
               {/* button */}
-              <button className="btn bg-[#2e7d32] border-none shadow text-white">Submit</button>
+              <button className="btn bg-[#2e7d32] border-none shadow text-white">
+                Submit
+              </button>
             </fieldset>
           </form>
         </div>
