@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { PiPottedPlantBold } from "react-icons/pi";
 import { useLoaderData } from "react-router";
 import BrowseTipsTable from "./BrowseTipsTable";
 
 const BrowseTips = () => {
-  const browseTips = useLoaderData();
-  console.log(browseTips);
+  const initialTips = useLoaderData();
+  const [browseTips, setBrowseTips] = useState(initialTips);
+  const [selectedLevel, setSelectedLevel] = useState("");
+
+  useEffect(() => {
+    selectedLevel &&
+      fetch(`http://localhost:3000/tips/${selectedLevel}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setBrowseTips(data);
+        });
+  }, [selectedLevel]);
+
+  const handleSorting = (e) => {
+    const level = e.target.value;
+    setSelectedLevel(level);
+
+    // const sorted = [...browseTips].sort((levelA, levelB) => {
+    //   if (levelA.level === selectedLevel && levelB.level !== selectedLevel) {
+    //     return -1;
+    //   } else if (levelA.level !== selectedLevel && levelB.level === selectedLevel) {
+    //     return 1;
+    //   }
+    //   return 0;
+    // });
+    // setBrowseTips(sorted);
+  };
   return (
-    <div>
+    <div className="space-y-5">
       <Helmet>
         <title>Garden Nest | Browse Tips</title>
       </Helmet>
@@ -16,12 +42,27 @@ const BrowseTips = () => {
         <PiPottedPlantBold size={35} />
         <h1 className="text-4xl font-semibold">Browse Tips:</h1>
       </div>
+      <div className="text-center">
+        <form>
+          <select
+            onChange={handleSorting}
+            defaultValue={selectedLevel}
+            className="select select-secondary"
+          >
+            <option value={""} disabled={true}>Filter by Level</option>
+            <option value={"Easy"}>Easy</option>
+            <option value={"Medium"}>Medium</option>
+            <option value={"Hard"}>Hard</option>
+          </select>
+        </form>
+      </div>
       <div>
         <div className="overflow-x-auto my-10 rounded-box border border-base-content/5 bg-base-200">
           <table className="table">
             <thead>
               <tr>
                 <th>Title</th>
+                <th>Level</th>
                 <th>Category</th>
                 <th>Gardener</th>
                 <th className="text-center">Image</th>

@@ -3,11 +3,12 @@ import { FaRegEye } from "react-icons/fa";
 import { Link } from "react-router";
 
 const BrowseTipsTable = ({ tips }) => {
-  const { category, imageURL, title, _id, email } = tips;
+  const { category, imageURL, title, _id, email, level } = tips;
   return (
     <>
       <tr>
         <th>{title}</th>
+        <td>{level}</td>
         <td>{category}</td>
         <td>{email}</td>
         <td>
