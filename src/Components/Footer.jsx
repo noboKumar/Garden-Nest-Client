@@ -8,9 +8,7 @@ const Footer = () => {
     <div className="bg-base-200">
       <footer className="footer sm:footer-horizontal text-base-content p-10 items-center w-11/12 mx-auto">
         <aside>
-          <Link className="btn btn-ghost text-2xl">
             <Logo></Logo>
-          </Link>
           <p className="md:text-xl">"Where Gardeners Bloom Together."</p>
         </aside>
         <nav className="space-y-2">

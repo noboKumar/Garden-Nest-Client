@@ -11,6 +11,7 @@ import ErrorPage from "../pages/ErrorPage";
 import PrivateRouter from "./PrivateRouter";
 import Loading from "../Components/Loading";
 import BrowseTipsDetails from "../pages/BrowseTipsDetails";
+import UpdateMyTips from "../pages/UpdateMyTips";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,13 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
+      },
+      {
+        path: "/updateTips/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/browseTips/${params.id}`),
+        hydrateFallbackElement: <Loading></Loading>,
+        Component: UpdateMyTips,
       },
       {
         path: "*",

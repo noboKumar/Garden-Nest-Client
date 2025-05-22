@@ -8,7 +8,7 @@ const Logo = () => {
         <img className="w-12 h-12 md:w-14 md:h-14" src={logo} alt="logo" />
       </div>
       <div>
-        <h1 className="poppins text-2xl md:text-3xl"><span className="text-secondary">Garden</span>Nest</h1>
+        <h1 className="poppins text-2xl md:text-3xl font-semibold"><span className="text-secondary">Garden</span>Nest</h1>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { TbUserEdit } from "react-icons/tb";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const MyTipsTable = ({ tips, myTips, setMyTips }) => {
@@ -30,8 +31,8 @@ const MyTipsTable = ({ tips, myTips, setMyTips }) => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
-              const remainingTips = myTips.filter(tips => tips._id !== _id)
-              setMyTips(remainingTips)
+              const remainingTips = myTips.filter((tips) => tips._id !== _id);
+              setMyTips(remainingTips);
             }
           });
       }
@@ -51,12 +52,11 @@ const MyTipsTable = ({ tips, myTips, setMyTips }) => {
       <td>
         <div className="flex flex-col gap-2">
           {/* edit button */}
-          <button
-            className="btn"
-            onClick={() => document.getElementById("my_modal_3").showModal()}
-          >
-            <TbUserEdit size={30} />
-          </button>
+          <Link to={`/updateTips/${_id}`} className="btn">
+            <button>
+              <TbUserEdit size={30} />
+            </button>
+          </Link>
           {/* delete button */}
           <button className="btn text-red-500" onClick={handleDelete}>
             <MdDeleteForever size={30} />
