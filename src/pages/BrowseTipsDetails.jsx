@@ -1,11 +1,35 @@
-import React from "react";
+import React, { use, useState } from "react";
 import { Helmet } from "react-helmet";
-import { FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useLoaderData } from "react-router";
+import { AuthContext } from "../provider/AuthContext";
 
 const BrowseTipsDetails = () => {
-  const { category, description, imageURL, level, title, type } =
+  const { category, description, imageURL, level, title, type, _id, likedBy } =
     useLoaderData();
+  const { user } = use(AuthContext);
+  const userEmail = user.email;
+  const [likeCount, setLikeCount] = useState(likedBy?.length);
+  const [isLiked, setIsLiked] = useState(false);
+  console.log(isLiked);
+
+  const handleLikeButton = () => {
+    fetch(`http://localhost:3000/tips/${_id}/like`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ email: userEmail }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          setLikeCount(likeCount + 1);
+          setIsLiked(true);
+        }
+      });
+  };
   return (
     <div className="border-2 border-[#2e7d32] bg-base-200 space-y-4 px-10 py-5 rounded-2xl">
       <Helmet>
@@ -31,9 +55,12 @@ const BrowseTipsDetails = () => {
           </p>
           <p className="md:text-2xl lg:w-6/12">{description}</p>
 
-          <button className="flex btn text-xl text-[#2e7d32] bg-base-300">
-            <FaRegHeart size={25} />
-            Like
+          <button
+            onClick={handleLikeButton}
+            className="flex btn text-xl text-[#2e7d32] bg-base-300"
+          >
+            {isLiked ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
+            Like {likeCount}
           </button>
         </div>
       </div>

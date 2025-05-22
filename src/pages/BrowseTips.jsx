@@ -53,17 +53,17 @@ const BrowseTips = () => {
           <table className="table">
             <thead>
               <tr>
+                <th>No.</th>
                 <th>Title</th>
                 <th>Level</th>
                 <th>Category</th>
-                <th>Gardener</th>
                 <th className="text-center">Image</th>
                 <th>See More</th>
               </tr>
             </thead>
             <tbody>
-              {browseTips.map((tips) => (
-                <BrowseTipsTable key={tips._id} tips={tips}></BrowseTipsTable>
+              {browseTips.map((tips, index) => (
+                <BrowseTipsTable index={index} key={tips._id} tips={tips}></BrowseTipsTable>
               ))}
             </tbody>
           </table>

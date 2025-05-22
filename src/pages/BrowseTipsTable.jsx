@@ -2,15 +2,15 @@ import React from "react";
 import { FaRegEye } from "react-icons/fa";
 import { Link } from "react-router";
 
-const BrowseTipsTable = ({ tips }) => {
-  const { category, imageURL, title, _id, email, level } = tips;
+const BrowseTipsTable = ({ tips, index }) => {
+  const { category, imageURL, title, _id, level } = tips;
   return (
     <>
       <tr>
+        <td>{index+1}</td>
         <th>{title}</th>
         <td>{level}</td>
         <td>{category}</td>
-        <td>{email}</td>
         <td>
           {imageURL && (
             <img
