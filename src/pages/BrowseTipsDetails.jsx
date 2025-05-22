@@ -10,7 +10,7 @@ const BrowseTipsDetails = () => {
   const { user } = use(AuthContext);
   const userEmail = user.email;
   const [likeCount, setLikeCount] = useState(likedBy?.length);
-  const [isLiked, setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(likedBy?.includes(userEmail));
   console.log(isLiked);
 
   const handleLikeButton = () => {

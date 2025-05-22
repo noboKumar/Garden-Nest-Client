@@ -13,7 +13,7 @@ const TopTrendingTipsCard = ({ trending }) => {
         />
       )}
       <h1 className="text-2xl text-center">{title}</h1>
-      <div className="dark:text-black flex items-center gap-2">
+      <div className="flex items-center gap-2">
         <FaRegHeart />
         <div>
           <span className="font-bold">Total Liked: </span>
