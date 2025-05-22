@@ -3,9 +3,11 @@ import { Helmet } from "react-helmet";
 import { RiMessage3Line } from "react-icons/ri";
 import { AuthContext } from "../provider/AuthContext";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const ShareGardenTip = () => {
   const { user } = use(AuthContext);
+  const navigate = useNavigate()
   const handleShareTips = (e) => {
     e.preventDefault();
 
@@ -31,6 +33,7 @@ const ShareGardenTip = () => {
           timer: 1500,
         });
         form.reset();
+        navigate("/browseTips")
       });
   };
   return (

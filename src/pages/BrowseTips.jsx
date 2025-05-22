@@ -23,6 +23,7 @@ const BrowseTips = () => {
               <tr>
                 <th>Title</th>
                 <th>Category</th>
+                <th>Gardener</th>
                 <th className="text-center">Image</th>
                 <th>See More</th>
               </tr>
