@@ -73,7 +73,7 @@ const ShareGardenTip = () => {
               <select
                 name="level"
                 defaultValue="Pick a color"
-                className="select w-full bg-base-200 bg-base-200"
+                className="select w-full bg-base-200"
               >
                 <option disabled={true}>Pick a Level</option>
                 <option>Easy</option>
@@ -83,6 +83,7 @@ const ShareGardenTip = () => {
               {/* description */}
               <label className="label text-sm">Description</label>
               <textarea
+                required
                 name="description"
                 className="textarea w-full bg-base-200"
                 placeholder="Enter Description Here"
