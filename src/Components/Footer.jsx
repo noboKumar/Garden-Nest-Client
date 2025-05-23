@@ -8,9 +8,23 @@ const Footer = () => {
     <div className="bg-base-200">
       <footer className="footer sm:footer-horizontal text-base-content p-10 items-center w-11/12 mx-auto">
         <aside>
-            <Logo></Logo>
+          <Logo></Logo>
           <p className="md:text-xl">"Where Gardeners Bloom Together."</p>
         </aside>
+        <nav>
+          <h6 className="footer-title">Contract</h6>
+          <a className="link link-hover">Email: support@example.com</a>
+          <a className="link link-hover">Phone: +1 (123) 456-7890</a>
+          <a className="link link-hover">Address: 123 Main St, City, Country</a>
+          <a className="link link-hover">Help Center</a>
+        </nav>
+        <nav>
+          <h6 className="footer-title">Terms</h6>
+          <a className="link link-hover">Terms of use</a>
+          <a className="link link-hover">Privacy policy</a>
+          <a className="link link-hover">Cookie policy</a>
+          <a className="link link-hover">User Agreement</a>
+        </nav>
         <nav className="space-y-2">
           <h6 className="footer-title">Social</h6>
           <a
@@ -45,19 +59,6 @@ const Footer = () => {
               <FaGithub size={20}></FaGithub>GitHub
             </span>
           </a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Company</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
         </nav>
       </footer>
     </div>
