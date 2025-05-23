@@ -1,13 +1,14 @@
 import React, { use, useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthContext";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const { googleLogIn, logInUser } = use(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ const Login = () => {
 
     logInUser(email, password)
       .then((result) => {
-        console.log(result);
+        navigate("/");
         Swal.fire({
           icon: "success",
           title: `welcome ${result.user?.displayName}`,
@@ -42,10 +43,24 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogIn()
       .then((result) => {
-        console.log(result.user);
+        navigate("/");
+        Swal.fire({
+          icon: "success",
+          title: `welcome ${result.user?.displayName}`,
+          text: "You Have Successfully Created Account",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.code}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   };
 

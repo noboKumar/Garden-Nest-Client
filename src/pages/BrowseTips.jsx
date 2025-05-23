@@ -39,7 +39,7 @@ const BrowseTips = () => {
           <select
             onChange={handleSorting}
             defaultValue={selectedLevel}
-            className="select bg-base-200"
+            className="select bg-base-300"
           >
             <option value={""} disabled={true}>
               Filter by Level
