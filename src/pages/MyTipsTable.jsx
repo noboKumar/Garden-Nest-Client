@@ -4,7 +4,7 @@ import { TbUserEdit } from "react-icons/tb";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const MyTipsTable = ({ tips, myTips, setMyTips }) => {
+const MyTipsTable = ({ tips, myTips, setMyTips, index }) => {
   const { title, category, imageURL, _id } = tips;
 
   const handleDelete = () => {
@@ -40,6 +40,7 @@ const MyTipsTable = ({ tips, myTips, setMyTips }) => {
   };
   return (
     <tr>
+      <td>{index + 1}</td>
       <th>{title}</th>
       <td>{category}</td>
       <td>

@@ -40,6 +40,7 @@ const MyTips = () => {
             {/* head */}
             <thead>
               <tr>
+                <th>no.</th>
                 <th>Title</th>
                 <th>Category</th>
                 <th className="text-center">image</th>
@@ -47,9 +48,10 @@ const MyTips = () => {
               </tr>
             </thead>
             <tbody>
-              {myTips.map((tips) => (
+              {myTips.map((tips, index) => (
                 <MyTipsTable
                   key={tips._id}
+                  index={index}
                   tips={tips}
                   myTips={myTips}
                   setMyTips={setMyTips}

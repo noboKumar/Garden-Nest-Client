@@ -6,7 +6,9 @@ const ActiveGardener = () => {
   useEffect(() => {
     fetch("https://ph-assignment-10-server-pi.vercel.app/activeusers")
       .then((res) => res.json())
-      .then((data) => setActiveUserData(data));
+      .then((data) => {
+        setActiveUserData(data);
+      });
   }, []);
   return (
     <div className="space-y-10 my-10">

@@ -9,7 +9,7 @@ const BrowseTipsDetails = () => {
     useLoaderData();
   const { user } = use(AuthContext);
   const userEmail = user.email;
-  const [likeCount, setLikeCount] = useState(likedBy?.length);
+  const [likeCount, setLikeCount] = useState(likedBy?.length||0);
   const [isLiked, setIsLiked] = useState(likedBy?.includes(userEmail));
   console.log(isLiked);
 

@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
+import { AuthContext } from "../provider/AuthContext";
+import Loading from "./Loading";
 
 const UpcomingEvents = () => {
   const [eventData, setEventData] = useState([]);
-
+  const { loading, setLoading } = use(AuthContext);
   useEffect(() => {
+    setLoading(true);
     fetch("upcomingEvents.json")
       .then((res) => res.json())
       .then((data) => {
         setEventData(data);
+        setLoading(false);
       });
-  }, []);
+  }, [setLoading]);
   console.log(eventData);
   return (
     <div className="space-y-10">
+      {loading && <Loading></Loading>}
       <h1 className="text-2xl md:text-4xl font-semibold text-secondary text-center">
         Upcoming Gardening Events:
       </h1>
@@ -31,9 +36,7 @@ const UpcomingEvents = () => {
             <p>Organizer: {event.organizer}</p>
             <p>Location: {event.location}</p>
             <p>Time: {event.time}</p>
-            <button className="btn bg-base-200">
-              {event.ctaText}
-            </button>
+            <button className="btn bg-base-200">{event.ctaText}</button>
           </div>
         ))}
       </div>
