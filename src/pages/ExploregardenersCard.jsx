@@ -18,7 +18,7 @@ const ExploreGardenersCard = ({ gardner }) => {
       <div className="flex gap-5">
         <div className="space-y-1.5 flex-1/2">
           <img
-            className="min-w-32 min-h-32 lg:min-w-40 lg:min-h-40 rounded-full"
+            className="min-h-32 min-w-32 md:min-w-40 md:min-h-40 lg:w-50 lg:h-50 rounded-full object-center object-cover"
             src={image}
             alt="gardner photo"
           />

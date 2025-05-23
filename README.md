@@ -1,12 +1,42 @@
-# React + Vite
+# 🌿 Garden Nest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 **Live Site URL**: [https://ph-assignment-10-garden-nest.netlify.app/](https://ph-assignment-10-garden-nest.netlify.app/)
 
-Currently, two official plugins are available:
+## 📌 Project Description: 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Garden Nest** is a social platform for garden enthusiasts made with `React JS`,To connect all gardeners, This is a resource for plant lover, hobbyist gardener and experts too, here gardeners can share garden tips and tricks, here gardeners can discover local garden events. This project is full Responsive so, all platform user can use it seamlessly. 
 
-## Expanding the ESLint configuration
+## Features:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📅 **Dynamic Home Banner**: Event-themed slider using `swiperJS` To view events.
+- 🧑‍🌾 **Active Gardeners Spotlight**: Homepage highlights top 6 “Active” gardener profiles fetched dynamically from MongoDB.
+- 👥 **Explore Gardeners**: Browse gardener profiles with detailed info like experience, status, and number of shared tips.
+- 🪴 **Browse Tips**: Users can view all gardening advice, Tips, special gardens that other gardeners shared publicly with filtering method based on difficulty level (Easy, Medium, Hard). 
+- ✍️ **Share a Garden Tip**:  User can post his own Tips and tricks (publicly/privately), all public tips will be visible to browse route.
+- 🔄 **Update Tip**:  User can Update his own Tips.
+- 🗑️ **Delete Tip:**:  Users can Delete His own Tips With a confirm alert.
+- 🛠️ **Full backend CRUD Functionality**:  Users can create, read, update, and delete their own tips.
+- ❤️ **Like & Trending System**: Users can like gardening tips.
+- 🌗 **Dark/Light Mode**: Toggle between light and dark themes from the navbar..
+- 🔐 **Authentication System**: user can Sign In, sign Up account using  Email/Password login, Google SignIn, password validation,show and hide password and secure private routes. 
+- 📱 **Fully Responsive**: This Project is a fully responsive This can adopt mobile, tablet, PC screen so, user  can use across all different size of screen.
+
+## 🛠️ Tech Stack:
+
+- **Frontend**: React, Tailwind CSS, DaisyUI
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: Firebase (Email/Password + Google Sign-In)
+- **Routing**: React Router
+
+## npm Packages:
+
+- `swiperJS` – for the homepage slider.  
+- `sweet-alert2` – for success/error message.  
+- `lottie-react` – for Error page animations.
+- `react-tooltip` – To show user name on NabBar on hover.
+- `react-icons` – for all icons used in this project.
+- `react-helmet` – for dynamic page title based on route.
+- `dotenv` – To hide all sensitive Firebase config & MongoDB credentials.
+
+---

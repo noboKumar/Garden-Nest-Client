@@ -12,7 +12,7 @@ const ErrorPage = () => {
       </Helmet>
       <Lottie animationData={gardenAnimation} />
       <div className="text-center space-y-5">
-        <h1 className="md:text-6xl font-bold">404 Page Not Found</h1>
+        <h1 className="md:text-6xl text-3xl font-bold">404 Page Not Found</h1>
         <Link to={"/"}>
           <button className="btn btn-secondary">Back To Home</button>
         </Link>

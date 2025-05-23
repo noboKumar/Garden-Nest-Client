@@ -5,7 +5,7 @@ const ActiveGardenerCard = ({ gardener }) => {
   return (
     <div className="text-center">
       <img
-        className="mx-auto w-28 h-28 rounded-full border-4 border-secondary p-1"
+        className="mx-auto w-28 h-28 object-center object-cover rounded-full border-4 border-secondary p-1"
         src={image}
         alt="user photo"
       />
