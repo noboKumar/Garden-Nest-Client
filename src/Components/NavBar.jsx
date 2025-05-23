@@ -60,7 +60,7 @@ const NavBar = () => {
       });
   };
   return (
-    <div className="shadow-sm bg-base-200 ">
+    <div className="shadow-sm bg-base-200">
       <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -112,7 +112,7 @@ const NavBar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu bg-secondary rounded-box z-50 w-52 p-2 shadow-sm"
+                  className="dropdown-content menu bg-base-300 rounded-box z-50 w-52 p-2 shadow-sm"
                 >
                   <li>
                     <button

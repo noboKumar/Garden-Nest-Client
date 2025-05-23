@@ -9,7 +9,7 @@ const Logo = () => {
       </div>
       <div>
         <h1 className="poppins text-2xl md:text-3xl font-semibold">
-          <span className="text-[#2e7d32]">Garden</span>Nest
+          <span className="text-secondary">Garden</span>Nest
         </h1>
       </div>
     </div>

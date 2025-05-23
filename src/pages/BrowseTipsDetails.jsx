@@ -31,7 +31,7 @@ const BrowseTipsDetails = () => {
       });
   };
   return (
-    <div className="border-2 border-[#2e7d32] bg-base-200 space-y-4 px-10 py-5 rounded-2xl">
+    <div className="border-2 border-secondary bg-base-200 space-y-4 px-10 py-5 rounded-2xl">
       <Helmet>
         <title>Garden Nest | Tips Details</title>
       </Helmet>
@@ -41,7 +41,7 @@ const BrowseTipsDetails = () => {
           <img className="lg:min-w-[500px] rounded-4xl" src={imageURL} alt="" />
         </div>
         <div className="space-y-2">
-          <h1 className="text-2xl md:text-4xl font-semibold text-[#2e7d32]">
+          <h1 className="text-2xl md:text-4xl font-semibold text-secondary">
             {title}
           </h1>
           <p className="text-xl">
@@ -57,7 +57,7 @@ const BrowseTipsDetails = () => {
 
           <button
             onClick={handleLikeButton}
-            className="flex btn text-xl text-[#2e7d32] bg-base-300"
+            className="flex btn text-xl text-secondary bg-base-200 border-secondary"
           >
             {isLiked ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
             Like {likeCount}

@@ -30,7 +30,7 @@ const BrowseTips = () => {
       <Helmet>
         <title>Garden Nest | Browse Tips</title>
       </Helmet>
-      <div className="flex items-center gap-2 justify-center text-[#2e7d32]">
+      <div className="flex items-center gap-2 justify-center text-secondary">
         <PiPottedPlantBold size={35} />
         <h1 className="text-4xl font-semibold">Browse Tips:</h1>
       </div>

@@ -40,7 +40,7 @@ const UpdateMyTips = () => {
   };
   return (
     <div className="space-y-5">
-      <div className="flex items-center gap-2 justify-center text-[#2e7d32]">
+      <div className="flex items-center gap-2 justify-center text-secondary">
         <FiEdit3 size={35} />
         <h1 className="text-2xl md:text-4xl font-semibold">
           Update Your Tips:

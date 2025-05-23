@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter } from "react-router";
 import Root from "../Root";
 import Home from "../pages/Home";
 import ExploreGardeners from "../pages/ExploreGardeners";

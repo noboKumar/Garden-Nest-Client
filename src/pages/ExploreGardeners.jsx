@@ -13,7 +13,7 @@ const ExploreGardeners = () => {
         <title>Garden Nest | Explore Gardeners</title>
       </Helmet>
       <div className="space-y-5">
-        <div className="flex items-center gap-2 justify-center text-[#2e7d32]">
+        <div className="flex items-center gap-2 justify-center text-secondary">
           <PiPlantFill size={35} />
           <h1 className="text-2xl md:text-4xl font-semibold">
             Explore Gardeners:
