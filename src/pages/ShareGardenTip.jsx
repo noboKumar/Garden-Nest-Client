@@ -14,7 +14,6 @@ const ShareGardenTip = () => {
     const form = e.target;
     const formData = new FormData(form);
     const tipsData = Object.fromEntries(formData.entries());
-    console.log(tipsData);
 
     fetch("https://ph-assignment-10-server-pi.vercel.app/tips", {
       method: "POST",
@@ -25,15 +24,16 @@ const ShareGardenTip = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        Swal.fire({
-          icon: "success",
-          title: "Your Tips Has been Shared",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        form.reset();
-        navigate("/browseTips");
+        if (data.acknowledged) {
+          Swal.fire({
+            icon: "success",
+            title: "Your Tips Has been Shared",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+          navigate("/browseTips");
+        }
       });
   };
   return (

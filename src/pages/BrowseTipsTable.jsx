@@ -7,18 +7,19 @@ const BrowseTipsTable = ({ tips, index }) => {
   return (
     <>
       <tr>
-        <td>{index+1}</td>
+        <td>{index + 1}</td>
         <th>{title}</th>
         <td>{level}</td>
         <td>{category}</td>
         <td>
-          {imageURL && (
-            <img
-              className="md:h-32 md:w-44 mx-auto rounded-xl"
-              src={imageURL}
-              alt="tips photo"
-            />
-          )}
+          <img
+            className="md:h-32 md:w-44 mx-auto rounded-xl"
+            src={
+              imageURL ||
+              "https://i.ibb.co/0pmKb7y2/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available-8.jpg"
+            }
+            alt="tips photo"
+          />
         </td>
         <td>
           <Link to={`/BrowseTips/${_id}`}>

@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
@@ -9,23 +9,20 @@ import {
 } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/bundle";
-import { AuthContext } from "../provider/AuthContext";
 import Loading from "./Loading";
 
 const GardenOfTheMonth = () => {
   const [gardenOfMonth, setGardenOfMonth] = useState([]);
-  const { loading, setLoading } = use(AuthContext);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
     fetch("gardenOfTheMonth.json")
       .then((res) => res.json())
       .then((data) => {
         setGardenOfMonth(data);
         setLoading(false);
       });
-  }, [setLoading]);
-  console.log(gardenOfMonth);
+  }, []);
   return (
     <div className="space-y-10 my-10">
       {loading && <Loading></Loading>}

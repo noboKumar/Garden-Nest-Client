@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const ThemeController = () => {
-  const localStorageTheme = localStorage.getItem("theme");
-  console.log(localStorageTheme);
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });

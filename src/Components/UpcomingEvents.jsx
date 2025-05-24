@@ -1,20 +1,18 @@
-import React, { use, useEffect, useState } from "react";
-import { AuthContext } from "../provider/AuthContext";
+import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
 
 const UpcomingEvents = () => {
   const [eventData, setEventData] = useState([]);
-  const { loading, setLoading } = use(AuthContext);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    setLoading(true);
     fetch("upcomingEvents.json")
       .then((res) => res.json())
       .then((data) => {
         setEventData(data);
         setLoading(false);
       });
-  }, [setLoading]);
-  console.log(eventData);
+  }, []);
   return (
     <div className="space-y-10">
       {loading && <Loading></Loading>}

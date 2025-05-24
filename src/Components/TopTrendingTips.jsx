@@ -1,21 +1,19 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import TopTrendingTipsCard from "./TopTrendingTipsCard";
-import { AuthContext } from "../provider/AuthContext";
 import Loading from "./Loading";
 
 const TopTrendingTips = () => {
   const [trendingData, setTrendingData] = useState([]);
-  const { loading, setLoading } = use(AuthContext);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
     fetch("https://ph-assignment-10-server-pi.vercel.app/trendingTips")
       .then((res) => res.json())
       .then((data) => {
         setTrendingData(data);
         setLoading(false);
       });
-  }, [setLoading]);
+  }, []);
   return (
     <div className="space-y-10">
       {loading && <Loading></Loading>}

@@ -24,7 +24,6 @@ const MyTipsTable = ({ tips, myTips, setMyTips, index }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
@@ -46,7 +45,10 @@ const MyTipsTable = ({ tips, myTips, setMyTips, index }) => {
       <td>
         <img
           className="md:h-32 md:w-44 mx-auto rounded-xl"
-          src={imageURL}
+          src={
+            imageURL ||
+            "https://i.ibb.co/0pmKb7y2/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available-8.jpg"
+          }
           alt="tips image"
         />
       </td>

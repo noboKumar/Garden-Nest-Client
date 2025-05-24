@@ -9,9 +9,8 @@ const BrowseTipsDetails = () => {
     useLoaderData();
   const { user } = use(AuthContext);
   const userEmail = user.email;
-  const [likeCount, setLikeCount] = useState(likedBy?.length||0);
+  const [likeCount, setLikeCount] = useState(likedBy?.length || 0);
   const [isLiked, setIsLiked] = useState(likedBy?.includes(userEmail));
-  console.log(isLiked);
 
   const handleLikeButton = () => {
     fetch(`https://ph-assignment-10-server-pi.vercel.app/tips/${_id}/like`, {
@@ -23,7 +22,6 @@ const BrowseTipsDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           setLikeCount(likeCount + 1);
           setIsLiked(true);

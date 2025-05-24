@@ -16,7 +16,6 @@ const BrowseTips = () => {
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setBrowseTips(data);
         });
   }, [selectedLevel]);
