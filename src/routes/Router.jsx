@@ -92,7 +92,15 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/dashBoard/ShareGardenTip",
+        index: true,
+        element: (
+          <PrivateRouter>
+            <MyTips></MyTips>
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "ShareGardenTip",
         element: (
           <PrivateRouter>
             <ShareGardenTip></ShareGardenTip>
@@ -100,7 +108,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashBoard/MyTips",
+        path: "MyTips",
         element: (
           <PrivateRouter>
             <MyTips></MyTips>
