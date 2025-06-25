@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router";
-import Root from "../Root";
+import Root from "../Layouts/Root";
 import Home from "../pages/Home";
 import ExploreGardeners from "../pages/ExploreGardeners";
 import BrowseTips from "../pages/BrowseTips";
@@ -12,6 +12,8 @@ import PrivateRouter from "./PrivateRouter";
 import Loading from "../Components/Loading";
 import BrowseTipsDetails from "../pages/BrowseTipsDetails";
 import UpdateMyTips from "../pages/UpdateMyTips";
+import AboutUs from "../pages/AboutUs";
+import Contact from "../pages/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -81,6 +83,14 @@ export const router = createBrowserRouter([
           ),
         hydrateFallbackElement: <Loading></Loading>,
         Component: UpdateMyTips,
+      },
+      {
+        path: "/aboutUs",
+        Component: AboutUs,
+      },
+      {
+        path: "/contact",
+        Component: Contact,
       },
       {
         path: "*",

@@ -19,6 +19,12 @@ const NavBar = () => {
       <li>
         <NavLink to={"/BrowseTips"}>Browse Tips</NavLink>
       </li>
+      <li>
+        <NavLink to={"/aboutUs"}>About Us</NavLink>
+      </li>
+            <li>
+        <NavLink to={"/contact"}>Contact</NavLink>
+      </li>
       {user && (
         <>
           <li>
@@ -28,6 +34,15 @@ const NavBar = () => {
             <NavLink to={"/MyTips"}>My Tips</NavLink>
           </li>
         </>
+      )}
+      {user ? (
+        <li>
+          <btn className="bg-red-600 text-white">Log Out</btn>
+        </li>
+      ) : (
+        <li>
+          <NavLink to={"/LogIn"}>Login</NavLink>
+        </li>
       )}
     </>
   );
@@ -90,7 +105,7 @@ const NavBar = () => {
               {navBarLinks}
             </ul>
           </div>
-            <Logo></Logo>
+          <Logo></Logo>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-xl gap-2 font-medium">
