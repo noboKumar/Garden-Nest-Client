@@ -50,18 +50,24 @@ const Slider = () => {
       >
         {sliderData.map((slider, index) => (
           <SwiperSlide key={index}>
-            <img
-              className="w-full h-[300px] md:h-[700px] rounded-2xl object-cover"
-              src={slider.imgUrl}
-              alt="slider-images"
-            />
-            <div className="absolute top-0 left-0 w-full h-full bg-black/60 rounded-2xl"></div>
-            <div className="absolute top-20 left-5 md:top-3/6 md:left-20 z-10 text-white w-4/6 md:w-6/12 space-y-2 md:space-y-5 text-shadow-2xs">
-              <h1 className="md:text-4xl text-2xl font-bold">{slider.title}</h1>
-              <p className="md:text-xl line-clamp-3 md:line-clamp-5">
-                {slider.description}
-              </p>
-              <button className="btn bg-secondary border-none shadow text-white">Join Now</button>
+            <div>
+              <img
+                className="w-full h-[300px] md:h-[500px] rounded-2xl object-center object-cover"
+                src={slider.imgUrl}
+                alt="slider-images"
+              />
+              <div className="absolute top-0 left-0 w-full h-full bg-black/60 rounded-2xl"></div>
+              <div className="absolute top-20 left-5 md:top-3/6 md:left-20 z-10 text-white w-4/6 md:w-6/12 space-y-2 md:space-y-5 text-shadow-2xs">
+                <h1 className="md:text-4xl text-2xl font-bold">
+                  {slider.title}
+                </h1>
+                <p className="md:text-xl line-clamp-3 md:line-clamp-5">
+                  {slider.description}
+                </p>
+                <button className="btn bg-secondary border-none shadow text-white">
+                  Join Now
+                </button>
+              </div>
             </div>
           </SwiperSlide>
         ))}
