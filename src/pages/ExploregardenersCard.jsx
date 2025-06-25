@@ -14,16 +14,19 @@ const ExploreGardenersCard = ({ gardner }) => {
     status,
   } = gardner;
   return (
-    <div className="rounded-2xl border-2 border-secondary bg-base-200 shadow-sm px-8 lg:px-12 py-5 space-y-2">
-      <div className="flex gap-5">
-        <div className="space-y-1.5 flex-1/2">
-          <img
-            className="min-h-32 min-w-32 md:min-w-40 md:min-h-40 lg:w-50 lg:h-50 rounded-full object-center object-cover"
-            src={image}
-            alt="gardner photo"
-          />
-          <p>{specialty}</p>
-          <p>status: {status}</p>
+    <div className="rounded-2xl border-2 border-secondary bg-base-200 shadow-sm px-4 py-5 space-y-2 flex flex-col">
+      <div className="flex gap-5 flex-1">
+        <div>
+          <div
+            className={`avatar ${
+              status === "Active" ? "avatar-online" : "avatar-offline"
+            }`}
+          >
+            <div className="w-32 rounded-full">
+              <img src={image} alt="gardner photo" />
+            </div>
+          </div>
+          <p className="text-sm">{specialty}</p>
         </div>
         <div className="space-y-2">
           <h1 className="text-2xl md:text-3xl font-semibold text-secondary">
@@ -37,9 +40,11 @@ const ExploreGardenersCard = ({ gardner }) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-2 bg-base-300 base-300 px-8 py-1 rounded-2xl">
-        <HiOutlineLightBulb size={25} />
-        <p className="lg:text-xl">Total Tips Shared: {totalSharedTips}</p>
+      <div>
+        <div className="flex items-center gap-2 bg-base-300 px-8 py-1 rounded-2xl">
+          <HiOutlineLightBulb size={25} />
+          <p className="lg:text-xl">Total Tips Shared: {totalSharedTips}</p>
+        </div>
       </div>
     </div>
   );

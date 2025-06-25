@@ -90,9 +90,7 @@ const NavBar = () => {
               {navBarLinks}
             </ul>
           </div>
-          <Link className="btn py-7 btn-ghost md:text-2xl">
             <Logo></Logo>
-          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-xl gap-2 font-medium">
