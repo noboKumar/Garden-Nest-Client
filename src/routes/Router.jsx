@@ -115,6 +115,10 @@ export const router = createBrowserRouter([
           </PrivateRouter>
         ),
       },
+      {
+        path: "*",
+        Component: ErrorPage,
+      },
     ],
   },
 ]);
