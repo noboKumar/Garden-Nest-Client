@@ -19,11 +19,19 @@ const Footer = () => {
           <a className="link link-hover">Help Center</a>
         </nav>
         <nav>
-          <h6 className="footer-title">Terms</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
-          <a className="link link-hover">User Agreement</a>
+          <h6 className="footer-title">Browse</h6>
+          <Link className="link link-hover" to={"/aboutUs"}>
+            About Us
+          </Link>
+          <Link className="link link-hover" to={"/contact"}>
+            Contact
+          </Link>
+          <Link className="link link-hover" to={"/ExploreGardeners"}>
+            Explore Gardeners
+          </Link>
+          <Link className="link link-hover" to={"/BrowseTips"}>
+            Browse Tips
+          </Link>
         </nav>
         <nav className="space-y-2">
           <h6 className="footer-title">Social</h6>
