@@ -3,22 +3,17 @@
   themes: light --default, dark;
 }
 
-:root:has(input.theme-controller[value="light"]:checked),
-[data-theme="light"] {
+:root {
   --color-primary: #4caf50;
   --color-secondary: #38923e;
-  --color-base-100: #ffffff;
   --color-base-200: #f0f4f1;
   --color-base-300: #d9e4dd;
 }
 
-:where(:root),
-:root:has(input.theme-controller[value="dark"]:checked),
 [data-theme="dark"] {
   --color-primary: #3e8840;
   --color-secondary: #185c1b;
-  --color-base-100: #2c2c2c54;
-  --color-base-200: #2c2c2c54;
+  --color-base-200: #2b2b2b;
   --color-base-300: #505050;
 }
 

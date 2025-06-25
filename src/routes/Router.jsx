@@ -14,6 +14,7 @@ import BrowseTipsDetails from "../pages/BrowseTipsDetails";
 import UpdateMyTips from "../pages/UpdateMyTips";
 import AboutUs from "../pages/AboutUs";
 import Contact from "../pages/Contact";
+import DashBoard from "../Layouts/DashBoard";
 
 export const router = createBrowserRouter([
   {
@@ -37,22 +38,6 @@ export const router = createBrowserRouter([
         loader: () =>
           fetch("https://ph-assignment-10-server-pi.vercel.app/browseTips"),
         hydrateFallbackElement: <Loading></Loading>,
-      },
-      {
-        path: "/ShareGardenTip",
-        element: (
-          <PrivateRouter>
-            <ShareGardenTip></ShareGardenTip>
-          </PrivateRouter>
-        ),
-      },
-      {
-        path: "/MyTips",
-        element: (
-          <PrivateRouter>
-            <MyTips></MyTips>
-          </PrivateRouter>
-        ),
       },
       {
         path: "/BrowseTips/:id",
@@ -95,6 +80,32 @@ export const router = createBrowserRouter([
       {
         path: "*",
         Component: ErrorPage,
+      },
+    ],
+  },
+  {
+    path: "/dashBoard",
+    element: (
+      <PrivateRouter>
+        <DashBoard></DashBoard>
+      </PrivateRouter>
+    ),
+    children: [
+      {
+        path: "/dashBoard/ShareGardenTip",
+        element: (
+          <PrivateRouter>
+            <ShareGardenTip></ShareGardenTip>
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/dashBoard/MyTips",
+        element: (
+          <PrivateRouter>
+            <MyTips></MyTips>
+          </PrivateRouter>
+        ),
       },
     ],
   },

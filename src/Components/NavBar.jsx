@@ -22,10 +22,15 @@ const NavBar = () => {
       <li>
         <NavLink to={"/aboutUs"}>About Us</NavLink>
       </li>
-            <li>
+      <li>
         <NavLink to={"/contact"}>Contact</NavLink>
       </li>
       {user && (
+        <li>
+          <NavLink to={"/dashBoard"}>DashBoard</NavLink>
+        </li>
+      )}
+      {/* {user && (
         <>
           <li>
             <NavLink to={"/ShareGardenTip"}>Share a Garden Tip</NavLink>
@@ -34,12 +39,8 @@ const NavBar = () => {
             <NavLink to={"/MyTips"}>My Tips</NavLink>
           </li>
         </>
-      )}
-      {user ? (
-        <li>
-          <btn className="bg-red-600 text-white">Log Out</btn>
-        </li>
-      ) : (
+      )} */}
+      {!user && (
         <li>
           <NavLink to={"/LogIn"}>Login</NavLink>
         </li>
@@ -74,7 +75,7 @@ const NavBar = () => {
       });
   };
   return (
-    <div className="shadow-sm bg-base-200 sticky z-10 top-0">
+    <div className="shadow-sm bg-base-200 sticky z-10 top-0 py-2">
       <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
