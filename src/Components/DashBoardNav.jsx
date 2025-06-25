@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthContext";
+import ThemeController from "./ThemeController";
 
 const DashBoardNav = () => {
   const { user } = useContext(AuthContext);
@@ -36,12 +37,13 @@ const DashBoardNav = () => {
         </div>
         <div>
           {/* user image */}
-          <div>
+          <div className="flex items-center gap-4">
             <div className="avatar">
-              <div className="w-20 rounded-full">
+              <div className="w-16 rounded-full">
                 <img src={user?.photoURL} />
               </div>
             </div>
+            <ThemeController></ThemeController>
           </div>
         </div>
       </div>
