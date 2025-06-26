@@ -22,7 +22,10 @@ const TopTrendingTipsCard = ({ trending }) => {
         </div>
       </div>
       <p className="line-clamp-3 grow">{description}</p>
-      <Link to={`/BrowseTips/${_id}`} className="btn btn-outline btn-primary mt-auto">
+      <Link
+        to={`/BrowseTips/${_id}`}
+        className="btn btn-outline btn-secondary mt-auto"
+      >
         See More
       </Link>
     </div>

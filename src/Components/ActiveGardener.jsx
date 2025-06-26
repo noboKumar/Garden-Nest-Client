@@ -15,7 +15,7 @@ const ActiveGardener = () => {
       });
   }, []);
   return (
-    <div className="space-y-10 my-10">
+    <div className="space-y-10 mt-10">
       {loading && <Loading></Loading>}
       <h1 className="text-2xl md:text-4xl font-semibold text-secondary text-center">
         Active gardeners:

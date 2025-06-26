@@ -75,7 +75,7 @@ const BrowseTipsCards = () => {
               <p className="line-clamp-3">{tip.description}</p>
             </div>
             <Link to={`/BrowseTips/${tip._id}`} className="mt-auto">
-              <button className="btn btn-outline btn-primary w-full flex items-center justify-center gap-2 rounded-xl">
+              <button className="btn btn-outline btn-secondary w-full flex items-center justify-center gap-2 rounded-xl">
                 <FaRegEye size={18} />
                 See More
               </button>

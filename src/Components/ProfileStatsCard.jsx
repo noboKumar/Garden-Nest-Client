@@ -69,22 +69,22 @@ const ProfileStatsCard = () => {
 
       {/* Stats */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="stat bg-white/70 rounded-xl shadow place-items-center">
+        <div className="stat bg-base-300 rounded-xl shadow place-items-center">
           <div className="stat-title text-sm">All Posts</div>
           <div className="stat-value">{allTipsCount}</div>
           <div className="stat-desc">Total Posts</div>
         </div>
-        <div className="stat bg-white/70 rounded-xl shadow place-items-center">
+        <div className="stat bg-base-300 rounded-xl shadow place-items-center">
           <div className="stat-title text-sm">My Posts</div>
           <div className="stat-value">{myTipsCount}</div>
           <div className="stat-desc">Your Posts</div>
         </div>
-        <div className="stat bg-white/70 rounded-xl shadow place-items-center">
+        <div className="stat bg-base-300 rounded-xl shadow place-items-center">
           <div className="stat-title text-sm">Total Likes (My Posts)</div>
           <div className="stat-value">{totalLikes}</div>
           <div className="stat-desc">All Likes on Your Tips</div>
         </div>
-        <div className="stat bg-white/70 rounded-xl shadow place-items-center">
+        <div className="stat bg-base-300 rounded-xl shadow place-items-center">
           <div className="stat-title text-sm">Most Liked Tip</div>
           <div className="stat-value">{mostLiked.likesCount || 0}</div>
           <div className="stat-desc truncate max-w-[12rem]">{mostLiked?.title}</div>

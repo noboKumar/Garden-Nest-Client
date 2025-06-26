@@ -10,7 +10,7 @@ import { FaLeaf } from "react-icons/fa";
 
 const SideBar = () => {
   return (
-    <div className="drawer-side border-r border-gray-300">
+    <div className="drawer-side border-r border-gray-300 z-50">
       <label
         htmlFor="my-drawer-2"
         aria-label="close sidebar"

@@ -5,7 +5,7 @@ import ThemeController from "./ThemeController";
 const DashBoardNav = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="bg-base-200 py-5 shadow-sm">
+    <div className="bg-base-200 py-5 shadow-sm sticky top-0 z-10">
       <div className="flex items-center gap-2 w-11/12 mx-auto justify-between">
         {/* sidebar icon */}
         <div className="flex items-center gap-4">

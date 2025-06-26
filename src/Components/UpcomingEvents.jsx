@@ -14,7 +14,7 @@ const UpcomingEvents = () => {
       });
   }, []);
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 mt-20">
       {loading && <Loading></Loading>}
       <h1 className="text-2xl md:text-4xl font-semibold text-secondary text-center">
         Upcoming Gardening Events:
@@ -23,7 +23,7 @@ const UpcomingEvents = () => {
         {eventData.map((event) => (
           <div
             key={event.id}
-            className="space-y-2 border-2 border-secondary bg-base-200 rounded-2xl px-10 py-6 shadow-sm cursor-pointer"
+            className="space-y-2 border-2 border-secondary bg-base-200 rounded-2xl px-10 py-6 shadow-sm"
           >
             <img
               className=" h-56 w-full object-cover rounded-2xl mx-auto"
@@ -34,7 +34,14 @@ const UpcomingEvents = () => {
             <p>Organizer: {event.organizer}</p>
             <p>Location: {event.location}</p>
             <p>Time: {event.time}</p>
-            <button className="btn btn-outline" onClick={()=>document.getElementById('join_event_modal').showModal()}>{event.ctaText}</button>
+            <button
+              className="btn btn-outline btn-secondary"
+              onClick={() =>
+                document.getElementById("join_event_modal").showModal()
+              }
+            >
+              {event.ctaText}
+            </button>
           </div>
         ))}
       </div>
