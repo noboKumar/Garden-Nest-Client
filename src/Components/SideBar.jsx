@@ -16,10 +16,16 @@ const SideBar = () => {
         </div>
         {/* Sidebar content here */}
         <li>
+          <NavLink to={"/dashBoard"} end >My Profile</NavLink>
+        </li>
+        <li>
           <NavLink to={"/dashBoard/MyTips"}>My Tips</NavLink>
         </li>
         <li>
           <NavLink to={"/dashBoard/ShareGardenTip"}>Share a Garden Tip</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/dashBoard/allTips"}>All Tips</NavLink>
         </li>
       </ul>
     </div>

@@ -16,6 +16,7 @@ import AboutUs from "../pages/AboutUs";
 import Contact from "../pages/Contact";
 import DashBoard from "../Layouts/DashBoard";
 import ExploreGardenersDetails from "../pages/ExploregardenersDetails";
+import MyProfile from "../pages/MyProfile";
 
 export const router = createBrowserRouter([
   {
@@ -94,11 +95,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: (
-          <PrivateRouter>
-            <MyTips></MyTips>
-          </PrivateRouter>
-        ),
+        Component: MyProfile,
       },
       {
         path: "ShareGardenTip",
@@ -115,6 +112,16 @@ export const router = createBrowserRouter([
             <MyTips></MyTips>
           </PrivateRouter>
         ),
+      },
+      {
+        path: "allTips",
+        element: (
+          <PrivateRouter>
+            <BrowseTips></BrowseTips>
+          </PrivateRouter>
+        ),
+        loader: () => fetch("http://localhost:3000/browseTips"),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "*",
