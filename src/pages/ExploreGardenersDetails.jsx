@@ -87,10 +87,10 @@ const ExploreGardenersDetails = () => {
         </div>
 
         <button
-          className="btn btn-outline btn-secondary mt-2 absolute top-5 left-10"
+          className="btn btn-outline rounded-full btn-secondary mt-2 absolute top-2 left-4 md:top-5 md:left-10"
           onClick={() => navigate(-1)}
         >
-          <HiOutlineArrowLeft className="inline" /> Back
+          <HiOutlineArrowLeft className="inline" />
         </button>
       </section>
     </main>
