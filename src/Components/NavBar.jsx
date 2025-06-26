@@ -25,7 +25,7 @@ const NavBar = () => {
       <li>
         <NavLink to={"/contact"}>Contact</NavLink>
       </li>
-      
+
       {user && (
         <li>
           <NavLink to={"/dashBoard"}>DashBoard</NavLink>
@@ -47,18 +47,30 @@ const NavBar = () => {
   );
 
   const handleLogOut = () => {
-    LogOutUser()
-      .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "Logged Out Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Log Out",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        LogOutUser()
+          .then(() => {
+            Swal.fire({
+              icon: "success",
+              title: "Logged Out Successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    });
   };
   return (
     <div className="shadow-sm bg-base-200 sticky z-10 top-0 py-2">
@@ -105,23 +117,14 @@ const NavBar = () => {
           </Tooltip>
           {user ? (
             <>
-              <div className="dropdown dropdown-bottom dropdown-end">
-                <div tabIndex={0} role="button">
-                  {userImg}
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu bg-base-300 rounded-box z-50 w-52 p-2 shadow-sm"
+              <div className="flex items-center gap-2">
+                {userImg}
+                <button
+                  onClick={handleLogOut}
+                  className="btn bg-red-700 text-white"
                 >
-                  <li>
-                    <button
-                      onClick={handleLogOut}
-                      className="btn bg-red-500 text-white"
-                    >
-                      Log Out
-                    </button>
-                  </li>
-                </ul>
+                  Log Out
+                </button>
               </div>
             </>
           ) : (
