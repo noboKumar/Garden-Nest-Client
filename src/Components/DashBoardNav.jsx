@@ -31,17 +31,18 @@ const DashBoardNav = () => {
             </label>
           </div>
           <div>
-            <h1 className="text-4xl font-bold">DashBoard</h1>
+            <h1 className="text-2xl md:text-4xl font-bold">DashBoard</h1>
           </div>
         </div>
         <div>
           {/* user image */}
           <div className="flex items-center gap-4">
-            <div className="avatar">
-              <div className="w-16 rounded-full">
-                <img src={user?.photoURL} />
-              </div>
-            </div>
+            <img
+              className="w-10 h-10 md:w-15 md:h-15 object-cover rounded-full border-2 border-gray-400 md:p-1 cursor-pointer"
+              src={user?.photoURL}
+              referrerPolicy="no-referrer"
+              alt=""
+            />
             <ThemeController></ThemeController>
           </div>
         </div>
