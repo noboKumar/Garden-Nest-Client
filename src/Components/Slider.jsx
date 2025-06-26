@@ -64,7 +64,12 @@ const Slider = () => {
                 <p className="md:text-xl line-clamp-3 md:line-clamp-5">
                   {slider.description}
                 </p>
-                <button className="btn bg-secondary border-none shadow text-white">
+                <button
+                  onClick={() =>
+                    document.getElementById("join_event_modal").showModal()
+                  }
+                  className="btn bg-secondary border-none shadow text-white"
+                >
                   Join Now
                 </button>
               </div>

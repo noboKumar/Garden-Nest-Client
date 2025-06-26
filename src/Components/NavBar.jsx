@@ -31,12 +31,6 @@ const NavBar = () => {
           <NavLink to={"/dashBoard"}>DashBoard</NavLink>
         </li>
       )}
-
-      {!user && (
-        <li>
-          <NavLink to={"/LogIn"}>Login</NavLink>
-        </li>
-      )}
     </>
   );
   const userImg = (

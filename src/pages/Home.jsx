@@ -5,6 +5,7 @@ import ActiveGardener from "../Components/ActiveGardener";
 import TopTrendingTips from "../Components/TopTrendingTips";
 import GardenOfTheMonth from "../Components/GardenOfTheMonth";
 import UpcomingEvents from "../Components/UpcomingEvents";
+import JoinEventModal from "../Components/JoinEventModal";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <TopTrendingTips></TopTrendingTips>
       <GardenOfTheMonth></GardenOfTheMonth>
       <UpcomingEvents></UpcomingEvents>
+      <JoinEventModal />
     </div>
   );
 };
