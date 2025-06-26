@@ -65,13 +65,6 @@ export const router = createBrowserRouter([
         Component: Register,
       },
       {
-        path: "/updateTips/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/browseTips/${params.id}`),
-        hydrateFallbackElement: <Loading></Loading>,
-        Component: UpdateMyTips,
-      },
-      {
         path: "/aboutUs",
         Component: AboutUs,
       },
@@ -112,6 +105,13 @@ export const router = createBrowserRouter([
             <MyTips></MyTips>
           </PrivateRouter>
         ),
+      },
+      {
+        path: "updateTips/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/browseTips/${params.id}`),
+        hydrateFallbackElement: <Loading></Loading>,
+        Component: UpdateMyTips,
       },
       {
         path: "allTips",

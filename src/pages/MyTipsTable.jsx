@@ -55,7 +55,7 @@ const MyTipsTable = ({ tips, myTips, setMyTips, index }) => {
       <td>
         <div className="flex flex-col gap-2">
           {/* edit button */}
-          <Link to={`/updateTips/${_id}`} className="btn">
+          <Link to={`/dashBoard/updateTips/${_id}`} className="btn">
             <button>
               <TbUserEdit size={30} />
             </button>

@@ -24,7 +24,6 @@ const MyTips = () => {
         });
     }
   }, [userEmail]);
-
   return (
     <div className="space-y-5">
       <Helmet>

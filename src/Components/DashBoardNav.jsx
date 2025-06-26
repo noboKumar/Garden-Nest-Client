@@ -4,7 +4,6 @@ import ThemeController from "./ThemeController";
 
 const DashBoardNav = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   return (
     <div className="bg-base-200 py-5 shadow-sm">
       <div className="flex items-center gap-2 w-11/12 mx-auto justify-between">

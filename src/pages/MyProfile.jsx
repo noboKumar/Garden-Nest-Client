@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import ProfileStatsCard from "../Components/ProfileStatsCard";
 
 const MyProfile = () => {
-    return (
-        <div>
-            This is my profile
-        </div>
-    );
+  return (
+    <div>
+      <ProfileStatsCard></ProfileStatsCard>
+    </div>
+  );
 };
 
 export default MyProfile;
