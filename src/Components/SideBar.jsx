@@ -1,6 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router";
 import Logo from "./Logo";
+import {
+  HiOutlineUserCircle,
+  HiOutlineLightBulb,
+  HiOutlinePlusCircle,
+} from "react-icons/hi";
+import { FaLeaf } from "react-icons/fa";
 
 const SideBar = () => {
   return (
@@ -12,20 +18,29 @@ const SideBar = () => {
       ></label>
       <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 text-xl space-y-2">
         <div className="py-2 border-b-2 mb-2">
-          <Logo></Logo>
+          <Logo />
         </div>
-        {/* Sidebar content here */}
+
         <li>
-          <NavLink to={"/dashBoard"} end >My Profile</NavLink>
+          <NavLink to="/dashBoard" end>
+            <HiOutlineUserCircle size={26} className="inline mr-2" /> My Profile
+          </NavLink>
         </li>
         <li>
-          <NavLink to={"/dashBoard/MyTips"}>My Tips</NavLink>
+          <NavLink to="/dashBoard/MyTips">
+            <HiOutlineLightBulb size={26} className="inline mr-2" /> My Tips
+          </NavLink>
         </li>
         <li>
-          <NavLink to={"/dashBoard/ShareGardenTip"}>Share a Garden Tip</NavLink>
+          <NavLink to="/dashBoard/ShareGardenTip">
+            <HiOutlinePlusCircle size={26} className="inline mr-2" /> Share a
+            Garden Tip
+          </NavLink>
         </li>
         <li>
-          <NavLink to={"/dashBoard/allTips"}>All Tips</NavLink>
+          <NavLink to="/dashBoard/allTips">
+            <FaLeaf size={26} className="inline mr-2" /> All Tips
+          </NavLink>
         </li>
       </ul>
     </div>
