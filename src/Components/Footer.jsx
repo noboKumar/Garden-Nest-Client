@@ -13,10 +13,10 @@ const Footer = () => {
         </aside>
         <nav>
           <h6 className="footer-title">Contract</h6>
-          <a className="link link-hover">Email: support@example.com</a>
+          <a className="link link-hover">Email: info@gardennest.com</a>
           <a className="link link-hover">Phone: +1 (123) 456-7890</a>
           <a className="link link-hover">Address: 123 Main St, City, Country</a>
-          <a className="link link-hover">Help Center</a>
+          <Link to={"/contact"} className="link link-hover">Help Center</Link>
         </nav>
         <nav>
           <h6 className="footer-title">Browse</h6>
