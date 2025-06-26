@@ -11,9 +11,7 @@ const BrowseTips = () => {
 
   useEffect(() => {
     selectedLevel &&
-      fetch(
-        `https://ph-assignment-10-server-pi.vercel.app/tips/${selectedLevel}`
-      )
+      fetch(`http://localhost:3000/tips/${selectedLevel}`)
         .then((res) => res.json())
         .then((data) => {
           setBrowseTips(data);

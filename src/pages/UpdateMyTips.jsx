@@ -17,7 +17,7 @@ const UpdateMyTips = () => {
     const formData = new FormData(form);
     const tipsUpdateData = Object.fromEntries(formData.entries());
 
-    fetch(`https://ph-assignment-10-server-pi.vercel.app/tips/${_id}`, {
+    fetch(`http://localhost:3000/tips/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

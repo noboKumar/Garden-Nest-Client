@@ -7,7 +7,7 @@ const TopTrendingTips = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://ph-assignment-10-server-pi.vercel.app/trendingTips")
+    fetch("http://localhost:3000/trendingTips")
       .then((res) => res.json())
       .then((data) => {
         setTrendingData(data);

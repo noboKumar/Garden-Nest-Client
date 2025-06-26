@@ -13,7 +13,7 @@ const BrowseTipsDetails = () => {
   const [isLiked, setIsLiked] = useState(likedBy?.includes(userEmail));
 
   const handleLikeButton = () => {
-    fetch(`https://ph-assignment-10-server-pi.vercel.app/tips/${_id}/like`, {
+    fetch(`http://localhost:3000/tips/${_id}/like`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

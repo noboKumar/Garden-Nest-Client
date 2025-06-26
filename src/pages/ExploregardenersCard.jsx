@@ -37,7 +37,7 @@ const ExploreGardenersCard = ({ gardner }) => {
 
       <div className="w-full">
         <Link
-          to={`/gardeners/${_id}`}
+          to={`/ExploreGardeners/${_id}`}
           className="btn btn-secondary btn-block text-white font-semibold mt-2"
         >
           See More

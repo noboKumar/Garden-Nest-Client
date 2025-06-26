@@ -15,7 +15,7 @@ const ShareGardenTip = () => {
     const formData = new FormData(form);
     const tipsData = Object.fromEntries(formData.entries());
 
-    fetch("https://ph-assignment-10-server-pi.vercel.app/tips", {
+    fetch("http://localhost:3000/tips", {
       method: "POST",
       headers: {
         "content-type": "application/json",
