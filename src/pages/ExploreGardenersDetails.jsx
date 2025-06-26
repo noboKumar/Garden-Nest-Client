@@ -38,7 +38,7 @@ const ExploreGardenersDetails = () => {
 
   return (
     <main className="min-h-screen bg-base-100 text-base-content py-10 px-4 flex justify-center">
-      <section className="w-full max-w-2xl bg-base-200 rounded-2xl shadow-lg p-6 md:p-10 flex flex-col items-center relative">
+      <section className="w-full max-w-2xl bg-base-200 rounded-2xl shadow-lg p-6 md:p-10 flex flex-col items-center relative border border-primary">
         <div
           className={`avatar ${
             status === "Active" ? "avatar-online" : "avatar-offline"

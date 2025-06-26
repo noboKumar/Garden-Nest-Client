@@ -17,6 +17,7 @@ import Contact from "../pages/Contact";
 import DashBoard from "../Layouts/DashBoard";
 import ExploreGardenersDetails from "../pages/ExploregardenersDetails";
 import MyProfile from "../pages/MyProfile";
+import BrowseTipsCards from "../pages/BrowseTipsCards";
 
 export const router = createBrowserRouter([
   {
@@ -71,6 +72,12 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         Component: Contact,
+      },
+      {
+        path: "/browseTipsCard",
+        Component: BrowseTipsCards,
+        loader: () => fetch("http://localhost:3000/browseTips"),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "*",

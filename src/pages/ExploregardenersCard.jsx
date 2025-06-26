@@ -40,7 +40,7 @@ const ExploreGardenersCard = ({ gardner }) => {
           to={`/ExploreGardeners/${_id}`}
           className="btn btn-secondary btn-block text-white font-semibold mt-2"
         >
-          See More
+          View Profile
         </Link>
       </div>
     </div>
