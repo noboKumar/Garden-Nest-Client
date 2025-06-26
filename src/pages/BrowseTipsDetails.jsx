@@ -29,37 +29,51 @@ const BrowseTipsDetails = () => {
       });
   };
   return (
-    <div className="border-2 border-secondary bg-base-200 space-y-4 px-10 py-5 rounded-2xl">
+    <div className="max-w-5xl mx-auto border-2 border-secondary bg-base-200 space-y-4 px-4 sm:px-10 py-5 rounded-2xl">
       <Helmet>
         <title>Garden Nest | Tips Details</title>
       </Helmet>
-      <h1 className="text-4xl font-semibold">Tips Details:</h1>
-      <div className="lg:flex gap-10 space-y-5">
-        <div className="lg:w-5/12">
-          <img className="lg:min-w-[500px] rounded-4xl" src={imageURL} alt="" />
+      <h1 className="text-4xl font-semibold mb-2 text-center">Tips Details:</h1>
+      <div className="space-y-5">
+        <div className="flex justify-center">
+          <img
+            className="rounded-3xl object-cover mx-auto w-full max-w-5xl h-64 sm:h-80 md:h-96"
+            src={
+              imageURL ||
+              "https://i.ibb.co/0pmKb7y2/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available-8.jpg"
+            }
+            alt={title}
+          />
         </div>
-        <div className="space-y-2">
-          <h1 className="text-2xl md:text-4xl font-semibold text-secondary">
+        <div className="space-y-8">
+          <h1 className="text-2xl md:text-4xl font-semibold text-secondary text-center">
             {title}
           </h1>
-          <p className="text-xl">
-            <span className="font-bold">Level:</span> {level}
+          <div className="flex flex-wrap justify-center gap-3 mb-2">
+            <span className="badge badge-lg badge-outline">
+              <span className="font-bold">Level:</span> {level}
+            </span>
+            <span className="badge badge-lg badge-outline">
+              <span className="font-bold">Category:</span> {category}
+            </span>
+            <span className="badge badge-lg badge-outline">
+              <span className="font-bold">Type:</span> {type}
+            </span>
+          </div>
+          <p className="md:text-2xl max-w-3xl mx-auto text-center text-gray-700">
+            {description}
           </p>
-          <p className="text-xl">
-            <span className="font-bold">Category:</span> {category}
-          </p>
-          <p className="text-xl">
-            <span className="font-bold">Plant Type:</span> {type}
-          </p>
-          <p className="md:text-2xl lg:w-6/12">{description}</p>
-
-          <button
-            onClick={handleLikeButton}
-            className="flex btn text-xl text-secondary bg-base-200 border-secondary"
-          >
-            {isLiked ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
-            Like {likeCount}
-          </button>
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={handleLikeButton}
+              className="flex items-center gap-2 btn text-xl text-secondary bg-base-200 border-secondary"
+              disabled={isLiked}
+              title={isLiked ? "You already liked this tip" : "Like this tip"}
+            >
+              {isLiked ? <FaHeart size={25} /> : <FaRegHeart size={25} />}
+              Like {likeCount}
+            </button>
+          </div>
         </div>
       </div>
     </div>
