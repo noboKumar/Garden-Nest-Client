@@ -14,22 +14,29 @@ const ProfileStatsCard = () => {
 
   useEffect(() => {
     // Fetch all tips
-    axios.get("http://localhost:3000/browseTips").then((res) => {
-      setAllTipsCount(res.data.length);
-    });
+    axios
+      .get("https://ph-assignment-10-server-pi.vercel.app/browseTips")
+      .then((res) => {
+        setAllTipsCount(res.data.length);
+      });
 
     // Fetch my tips
     axios
-      .post("http://localhost:3000/myTips", { email: user.email })
+      .post("https://ph-assignment-10-server-pi.vercel.app/myTips", {
+        email: user.email,
+      })
       .then((res) => {
         setMyTipsCount(res.data.length);
 
         // Total likes in my tips
-        const total = res.data.reduce((sum, tip) => sum + (tip.likedBy?.length || 0), 0);
+        const total = res.data.reduce(
+          (sum, tip) => sum + (tip.likedBy?.length || 0),
+          0
+        );
         setTotalLikes(total);
 
         // Find latest tip by createdAt
-        const tipsWithDate = res.data.filter(tip => tip.createdAt);
+        const tipsWithDate = res.data.filter((tip) => tip.createdAt);
         if (tipsWithDate.length > 0) {
           const sorted = [...tipsWithDate].sort(
             (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
@@ -42,7 +49,9 @@ const ProfileStatsCard = () => {
 
     // Most liked tip
     axios
-      .post("http://localhost:3000/myMostLikedTip", { email: user.email })
+      .post("https://ph-assignment-10-server-pi.vercel.app/myMostLikedTip", {
+        email: user.email,
+      })
       .then((res) => {
         setMostLiked(res.data);
       });
@@ -99,7 +108,9 @@ const ProfileStatsCard = () => {
         <div className="stat bg-base-300 rounded-xl shadow place-items-center">
           <div className="stat-title text-sm">Most Liked Tip</div>
           <div className="stat-value">{mostLiked.likesCount || 0}</div>
-          <div className="stat-desc truncate max-w-[12rem]">{mostLiked?.title}</div>
+          <div className="stat-desc truncate max-w-[12rem]">
+            {mostLiked?.title}
+          </div>
         </div>
       </div>
 
@@ -107,9 +118,7 @@ const ProfileStatsCard = () => {
       <div className="mt-8">
         <div className="stat bg-base-300 rounded-xl shadow place-items-center">
           <div className="stat-title text-sm">Latest Post</div>
-          <div className="stat-value">
-            {latestTip?.title || "No posts yet"}
-          </div>
+          <div className="stat-value">{latestTip?.title || "No posts yet"}</div>
           <div className="stat-desc">
             {latestTip?.createdAt
               ? "Posted at: " + formatDate(latestTip.createdAt)

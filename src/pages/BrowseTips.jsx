@@ -15,10 +15,10 @@ const BrowseTips = () => {
     let fetchOptions = {};
 
     if (selectedLevel) {
-      url = `http://localhost:3000/tips/${selectedLevel}`;
+      url = `https://ph-assignment-10-server-pi.vercel.app/tips/${selectedLevel}`;
       fetchOptions = {};
     } else {
-      url = "http://localhost:3000/sortedTips";
+      url = "https://ph-assignment-10-server-pi.vercel.app/sortedTips";
       fetchOptions = {
         headers: {
           "sort-order": sortOrder,

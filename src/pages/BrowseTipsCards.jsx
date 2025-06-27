@@ -12,14 +12,16 @@ const BrowseTipsCards = () => {
 
   useEffect(() => {
     if (selectedLevel) {
-      fetch(`http://localhost:3000/tips/${selectedLevel}`)
+      fetch(
+        `https://ph-assignment-10-server-pi.vercel.app/tips/${selectedLevel}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setBrowseTips(data);
         });
     } else {
       setBrowseTips(initialTips);
-      fetch("http://localhost:3000/sortedTips", {
+      fetch("https://ph-assignment-10-server-pi.vercel.app/sortedTips", {
         headers: {
           "sort-order": sortOrder,
         },

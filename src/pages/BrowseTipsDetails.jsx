@@ -24,7 +24,7 @@ const BrowseTipsDetails = () => {
   const postTime = moment(createdAt).format("DD/MM/YYYY");
 
   const handleLikeButton = () => {
-    fetch(`http://localhost:3000/tips/${_id}/like`, {
+    fetch(`https://ph-assignment-10-server-pi.vercel.app/tips/${_id}/like`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
