@@ -3,14 +3,25 @@ import { Helmet } from "react-helmet";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthContext";
+import moment from "moment";
 
 const BrowseTipsDetails = () => {
-  const { category, description, imageURL, level, title, type, _id, likedBy } =
-    useLoaderData();
+  const {
+    category,
+    description,
+    imageURL,
+    level,
+    title,
+    type,
+    _id,
+    likedBy,
+    createdAt,
+  } = useLoaderData();
   const { user } = use(AuthContext);
   const userEmail = user.email;
   const [likeCount, setLikeCount] = useState(likedBy?.length || 0);
   const [isLiked, setIsLiked] = useState(likedBy?.includes(userEmail));
+  const postTime = moment(createdAt).format("DD/MM/YYYY");
 
   const handleLikeButton = () => {
     fetch(`http://localhost:3000/tips/${_id}/like`, {
@@ -46,9 +57,12 @@ const BrowseTipsDetails = () => {
           />
         </div>
         <div className="space-y-8">
-          <h1 className="text-2xl md:text-4xl font-semibold text-secondary text-center">
-            {title}
-          </h1>
+          <div className="space-y-2">
+            <h1 className="text-2xl md:text-4xl font-semibold text-secondary text-center">
+              {title}
+            </h1>
+            <p className="text-center">Posted at: {postTime}</p>
+          </div>
           <div className="flex flex-wrap justify-center gap-3 mb-2">
             <span className="badge badge-lg badge-outline">
               <span className="font-bold">Level:</span> {level}

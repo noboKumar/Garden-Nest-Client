@@ -10,10 +10,11 @@ const ProfileStatsCard = () => {
   const [mostLiked, setMostLiked] = useState({ title: "", likesCount: 0 });
   const [totalLikes, setTotalLikes] = useState(0);
   const [accountCreatedAt, setAccountCreatedAt] = useState("");
+  const [latestTip, setLatestTip] = useState(null);
 
   useEffect(() => {
     // Fetch all tips
-    axios.get("http://localhost:3000/tips").then((res) => {
+    axios.get("http://localhost:3000/browseTips").then((res) => {
       setAllTipsCount(res.data.length);
     });
 
@@ -26,6 +27,17 @@ const ProfileStatsCard = () => {
         // Total likes in my tips
         const total = res.data.reduce((sum, tip) => sum + (tip.likedBy?.length || 0), 0);
         setTotalLikes(total);
+
+        // Find latest tip by createdAt
+        const tipsWithDate = res.data.filter(tip => tip.createdAt);
+        if (tipsWithDate.length > 0) {
+          const sorted = [...tipsWithDate].sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          );
+          setLatestTip(sorted[0]);
+        } else {
+          setLatestTip(null);
+        }
       });
 
     // Most liked tip
@@ -39,9 +51,9 @@ const ProfileStatsCard = () => {
     setAccountCreatedAt(user.metadata?.creationTime || "");
   }, [user.email, user.metadata]);
 
-  const formatDate = (isoString)=>{
-      return moment(isoString).format("DD/MM/YYYY")
-  }
+  const formatDate = (isoString) => {
+    return moment(isoString).format("DD/MM/YYYY");
+  };
 
   return (
     <div className="max-w-4xl mx-auto p-4 bg-base-200 border border-primary rounded-2xl shadow-lg">
@@ -88,6 +100,21 @@ const ProfileStatsCard = () => {
           <div className="stat-title text-sm">Most Liked Tip</div>
           <div className="stat-value">{mostLiked.likesCount || 0}</div>
           <div className="stat-desc truncate max-w-[12rem]">{mostLiked?.title}</div>
+        </div>
+      </div>
+
+      {/* Latest Post Stat */}
+      <div className="mt-8">
+        <div className="stat bg-base-300 rounded-xl shadow place-items-center">
+          <div className="stat-title text-sm">Latest Post</div>
+          <div className="stat-value">
+            {latestTip?.title || "No posts yet"}
+          </div>
+          <div className="stat-desc">
+            {latestTip?.createdAt
+              ? "Posted at: " + formatDate(latestTip.createdAt)
+              : ""}
+          </div>
         </div>
       </div>
     </div>
