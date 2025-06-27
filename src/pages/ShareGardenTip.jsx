@@ -4,16 +4,19 @@ import { RiMessage3Line } from "react-icons/ri";
 import { AuthContext } from "../provider/AuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import moment from "moment";
 
 const ShareGardenTip = () => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
   const handleShareTips = (e) => {
     e.preventDefault();
+    const createdAt = moment().toISOString();
 
     const form = e.target;
     const formData = new FormData(form);
     const tipsData = Object.fromEntries(formData.entries());
+    tipsData.createdAt = createdAt;
 
     fetch("http://localhost:3000/tips", {
       method: "POST",
@@ -32,7 +35,7 @@ const ShareGardenTip = () => {
             timer: 1500,
           });
           form.reset();
-          navigate("/browseTips");
+          navigate("/browseTipsCard");
         }
       });
   };

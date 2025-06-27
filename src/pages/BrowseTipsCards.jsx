@@ -8,6 +8,7 @@ const BrowseTipsCards = () => {
   const initialTips = useLoaderData();
   const [browseTips, setBrowseTips] = useState(initialTips);
   const [selectedLevel, setSelectedLevel] = useState("");
+  const [sortOrder, setSortOrder] = useState("new");
 
   useEffect(() => {
     if (selectedLevel) {
@@ -18,14 +19,24 @@ const BrowseTipsCards = () => {
         });
     } else {
       setBrowseTips(initialTips);
+      fetch("http://localhost:3000/sortedTips", {
+        headers: {
+          "sort-order": sortOrder,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => setBrowseTips(data));
     }
-  }, [selectedLevel, initialTips]);
+  }, [selectedLevel, initialTips, sortOrder]);
 
-  const handleSorting = (e) => {
+  const handleFiltering = (e) => {
     const level = e.target.value;
     setSelectedLevel(level);
   };
-
+  const handleSorting = (e) => {
+    const sort = e.target.value;
+    setSortOrder(sort);
+  };
   return (
     <div className="space-y-5">
       <Helmet>
@@ -35,10 +46,10 @@ const BrowseTipsCards = () => {
         <PiPottedPlantBold size={35} />
         <h1 className="text-4xl font-semibold">Browse Tips:</h1>
       </div>
-      <div className="text-center">
+      <div className="text-center flex justify-center gap-5">
         <form>
           <select
-            onChange={handleSorting}
+            onChange={handleFiltering}
             defaultValue={selectedLevel}
             className="select bg-base-300"
           >
@@ -48,6 +59,19 @@ const BrowseTipsCards = () => {
             <option value={"Easy"}>Easy</option>
             <option value={"Medium"}>Medium</option>
             <option value={"Hard"}>Hard</option>
+          </select>
+        </form>
+        <form>
+          <select
+            onChange={handleSorting}
+            defaultValue={selectedLevel}
+            className="select bg-base-300"
+          >
+            <option value={""} disabled={true}>
+              Newest First
+            </option>
+            <option value={"new"}>Newest</option>
+            <option value={"old"}>Oldest</option>
           </select>
         </form>
       </div>
@@ -75,7 +99,7 @@ const BrowseTipsCards = () => {
               <p className="line-clamp-3">{tip.description}</p>
             </div>
             <Link to={`/BrowseTips/${tip._id}`} className="mt-auto">
-              <button className="btn btn-outline btn-secondary w-full flex items-center justify-center gap-2 rounded-xl">
+              <button className="btn btn-outline btn-primary w-full flex items-center justify-center gap-2 rounded-xl">
                 <FaRegEye size={18} />
                 See More
               </button>
