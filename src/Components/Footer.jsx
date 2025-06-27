@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <div className="bg-base-200">
-      <footer className="footer sm:footer-horizontal text-base-content p-10 items-center w-11/12 mx-auto">
+      <footer className="footer lg:footer-horizontal text-base-content p-10 items-center w-11/12 mx-auto">
         <aside>
           <Logo></Logo>
           <p className="md:text-xl">"Where Gardeners Bloom Together."</p>

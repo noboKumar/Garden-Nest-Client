@@ -67,9 +67,6 @@ const BrowseTipsCards = () => {
             defaultValue={selectedLevel}
             className="select bg-base-300"
           >
-            <option value={""} disabled={true}>
-              Newest First
-            </option>
             <option value={"new"}>Newest</option>
             <option value={"old"}>Oldest</option>
           </select>

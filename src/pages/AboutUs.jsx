@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <main className="min-h-screen bg-base-100 text-base-content py-10 px-4 md:px-10">
+    <main className="min-h-screen text-base-content py-10 px-4 md:px-10">
       <section className="max-w-5xl mx-auto">
         {/* Brand Logo & Title */}
         <div className="flex flex-col items-center gap-4 mb-10">

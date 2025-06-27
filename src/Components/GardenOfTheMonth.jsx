@@ -43,9 +43,9 @@ const GardenOfTheMonth = () => {
         >
           {gardenOfMonth.map((slider) => (
             <SwiperSlide key={slider.id}>
-              <div className="md:flex items-center gap-5 p-11 space-y-5">
+              <div className="lg:flex items-center gap-5 p-11 space-y-5">
                 <img
-                  className="md:h-[500px] w-[500px] object-cover rounded-2xl"
+                  className="md:h-[500px] h-[200px] w-[500px] object-cover rounded-2xl"
                   src={slider.image}
                   alt="slider-images"
                 />

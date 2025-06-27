@@ -74,7 +74,7 @@ const BrowseTipsDetails = () => {
               <span className="font-bold">Type:</span> {type}
             </span>
           </div>
-          <p className="md:text-2xl max-w-3xl mx-auto text-center text-gray-700">
+          <p className="md:text-2xl max-w-3xl mx-auto text-center ">
             {description}
           </p>
           <div className="flex justify-center mt-4">

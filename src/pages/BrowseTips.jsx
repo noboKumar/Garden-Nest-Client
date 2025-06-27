@@ -8,20 +8,42 @@ const BrowseTips = () => {
   const initialTips = useLoaderData();
   const [browseTips, setBrowseTips] = useState(initialTips);
   const [selectedLevel, setSelectedLevel] = useState("");
+  const [sortOrder, setSortOrder] = useState("new");
 
   useEffect(() => {
-    selectedLevel &&
-      fetch(`http://localhost:3000/tips/${selectedLevel}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setBrowseTips(data);
-        });
-  }, [selectedLevel]);
+    let url = "";
+    let fetchOptions = {};
 
-  const handleSorting = (e) => {
+    if (selectedLevel) {
+      url = `http://localhost:3000/tips/${selectedLevel}`;
+      fetchOptions = {};
+    } else {
+      url = "http://localhost:3000/sortedTips";
+      fetchOptions = {
+        headers: {
+          "sort-order": sortOrder,
+        },
+      };
+    }
+
+    fetch(url, fetchOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        setBrowseTips(data);
+      });
+  }, [selectedLevel, sortOrder, initialTips]);
+
+  const handleLevelFiltering = (e) => {
     const level = e.target.value;
     setSelectedLevel(level);
   };
+
+  const handleSorting = (e) => {
+    const sort = e.target.value;
+    setSortOrder(sort);
+    setSelectedLevel(""); // reset filter when sorting (optional)
+  };
+
   return (
     <div className="space-y-5">
       <Helmet>
@@ -31,19 +53,27 @@ const BrowseTips = () => {
         <PiPottedPlantBold size={35} />
         <h1 className="text-4xl font-semibold">Browse Tips:</h1>
       </div>
-      <div className="text-center">
+      <div className="text-center flex justify-center gap-5">
         <form>
           <select
-            onChange={handleSorting}
-            defaultValue={selectedLevel}
+            onChange={handleLevelFiltering}
+            value={selectedLevel}
             className="select bg-base-300"
           >
-            <option value={""} disabled={true}>
-              Filter by Level
-            </option>
+            <option value={""}>Filter by Level</option>
             <option value={"Easy"}>Easy</option>
             <option value={"Medium"}>Medium</option>
             <option value={"Hard"}>Hard</option>
+          </select>
+        </form>
+        <form>
+          <select
+            onChange={handleSorting}
+            value={sortOrder}
+            className="select bg-base-300"
+          >
+            <option value={"new"}>Newest</option>
+            <option value={"old"}>Oldest</option>
           </select>
         </form>
       </div>
