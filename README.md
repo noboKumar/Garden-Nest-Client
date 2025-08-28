@@ -1,6 +1,6 @@
 # 🌿 Garden Nest
 
-🔗 **Live Site URL**: [https://ph-assignment-10-garden-nest.netlify.app/](https://ph-assignment-10-garden-nest.netlify.app/)
+🔗 **Live Site URL**: [https://garden-nest.netlify.app/](https://garden-nest.netlify.app/)
 
 ## 📌 Project Description:
 
